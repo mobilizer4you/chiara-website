@@ -1,0 +1,37 @@
+{
+	"name": "tickstock",
+	"version": "0.0.0",
+	"private": true,
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev --parallel",
+		"lint": "turbo run lint",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"prepare": "husky install"
+	},
+	"devDependencies": {
+		"husky": "^7.0.4",
+		"prettier": "^2.5.1",
+		"turbo": "latest"
+	},
+	"engines": {
+		"npm": ">=7.0.0",
+		"node": ">=14.0.0"
+	},
+	"packageManager": "pnpm@6.32.3",
+	"dependencies": {
+		"@prisma/client": "^3.11.0",
+		"babel-eslint": "^10.1.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"firebase": "8.10.0",
+		"firebase-admin": "^10.0.2",
+		"prisma": "^3.11.0"
+	},
+	"lint-staged": {
+		"*.{ts,tsx,md}": "prettier --write"
+	}
+}
