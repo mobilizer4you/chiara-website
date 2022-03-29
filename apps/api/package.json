@@ -6,7 +6,7 @@
 		"test": "jest --detectOpenHandles",
 		"dev": "nodemon --exec \"node -r esbuild-register ./src/index.ts\" -e .ts",
 		"start": "node -r esbuild-register ./src/index.ts",
-		"build": "tsc",
+		"build": "rm -rf ./dist && tsc",
 		"lint": "tsc --noEmit && TIMING=1 eslint src --fix",
 		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
 		"generate": "graphql-codegen"
@@ -25,7 +25,6 @@
 		"nodemon": "^2.0.15",
 		"scripts": "*",
 		"supertest": "^6.1.3",
-		"tsconfig": "*",
 		"typescript": "^4.5.3"
 	},
 	"jest": {
@@ -47,6 +46,7 @@
 		"jsonwebtoken": "^8.5.1",
 		"logger": "*",
 		"morgan": "^1.10.0",
-		"prisma-local": "workspace:*"
+		"prisma-local": "workspace:*",
+		"tsconfig": "workspace:*"
 	}
 }

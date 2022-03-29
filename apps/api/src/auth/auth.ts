@@ -1,8 +1,8 @@
-import { LoginRequest, LoginResponse } from "./../../generated/resolversTypes";
 import { PrismaClient, User } from "@prisma/client";
 import * as bcrypt from "bcrypt";
 import cuid from "cuid";
 import * as jwt from "jsonwebtoken";
+import { LoginRequest, LoginResponse } from "../generated/resolversTypes";
 
 const SALT_ROUND = 10;
 
@@ -23,7 +23,7 @@ const generateToken = (user: User) => {
       iat: Date.now(),
       exp: Date.now() + 1000 * 60 * 60 * 24 * 7,
     },
-    process.env.JWT_SECRET,
+    process.env.JWT_SECRET as string,
     {
       algorithm: "HS512",
     }
