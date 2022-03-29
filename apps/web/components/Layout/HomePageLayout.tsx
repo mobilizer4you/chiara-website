@@ -8,7 +8,6 @@ type Props = {
 };
 
 const HomePageLayout = ({ children }: Props) => {
-  const [open, setOpen] = React.useState(false);
   return (
     <>
       <Navbar
@@ -17,60 +16,56 @@ const HomePageLayout = ({ children }: Props) => {
       >
         <div className="container">
           <Link href="/" passHref>
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand">
               <VisuallyHidden>Home</VisuallyHidden>
               <img src="./images/logo.svg" alt="" />
             </a>
           </Link>
           <Navbar.Toggle
             className="navbar-toggler"
-            type="button"
-            onClick={() => setOpen(!open)}
+            aria-controls="basic-navbar-nav"
           >
             <VisuallyHidden>Open Menu</VisuallyHidden>
             <span className="navbar-toggler-icon"></span>
           </Navbar.Toggle>
           <Navbar.Collapse
-            className="collapse navbar-collapse justify-content-end"
-            id="navbarNav"
-            in={open}
+            className="justify-content-end"
+            id="basic-navbar-nav"
           >
             <Nav className="navbar-nav nav-links-cstm">
-              <Nav.Link className="nav-item">
+              <Nav.Item role="link">
                 <Link href="/" passHref>
                   {/* TODO: Extract active logic */}
-                  <a className="nav-link active" aria-current="page">
-                    Home
-                  </a>
+                  <a className="nav-link">Home</a>
                 </Link>
-              </Nav.Link>
-              <Nav.Link className="nav-item">
+              </Nav.Item>
+              <Nav.Item>
                 <Link href="/about" passHref>
                   <a className="nav-link ">About us</a>
                 </Link>
-              </Nav.Link>
-              <Nav.Link className="nav-item">
+              </Nav.Item>
+              <Nav.Item>
                 <Link href="/features" passHref>
                   <a className="nav-link">Features</a>
                 </Link>
-              </Nav.Link>
-              <Nav.Link className="nav-item">
+              </Nav.Item>
+              <Nav.Item>
                 <Link href="/pricing" passHref>
                   <a className="nav-link ">Pricing Plan</a>
                 </Link>
-              </Nav.Link>
-              <Nav.Link className="nav-item">
+              </Nav.Item>
+              <Nav.Item>
                 <Link href="/help" passHref>
                   <a className="nav-link" href="help-center.html">
                     Help Center
                   </a>
                 </Link>
-              </Nav.Link>
-              <Nav.Link className="nav-item">
+              </Nav.Item>
+              <Nav.Item>
                 <Link href="/signup" passHref>
                   <a className="nav-link btn-theme">Join us</a>
                 </Link>
-              </Nav.Link>
+              </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </div>
