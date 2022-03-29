@@ -1,77 +1,87 @@
 import React from "react";
-
+import VisuallyHidden from "../VisuallyHidden";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Link from "next/link";
 type Props = {
   children: React.ReactNode;
 };
 
 const HomePageLayout = ({ children }: Props) => {
+  const [open, setOpen] = React.useState(false);
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-cstm fixed-top">
+      <Navbar
+        expand="lg"
+        className="navbar navbar-expand-lg navbar-dark bg-dark navbar-cstm fixed-top"
+      >
         <div className="container">
-          <a className="navbar-brand" href="#">
-            <span className="sr-only">Home</span>
-            <img src="./images/logo.svg" alt="" />
-          </a>
-          <button
+          <Link href="/" passHref>
+            <a className="navbar-brand" href="#">
+              <VisuallyHidden>Home</VisuallyHidden>
+              <img src="./images/logo.svg" alt="" />
+            </a>
+          </Link>
+          <Navbar.Toggle
             className="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            onClick={() => setOpen(!open)}
           >
+            <VisuallyHidden>Open Menu</VisuallyHidden>
             <span className="navbar-toggler-icon"></span>
-          </button>
-          <div
+          </Navbar.Toggle>
+          <Navbar.Collapse
             className="collapse navbar-collapse justify-content-end"
             id="navbarNav"
+            in={open}
           >
-            <ul className="navbar-nav nav-links-cstm">
-              <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="index.html"
-                >
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link " href="about.html">
-                  About us
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="features.html">
-                  Features
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link " href="pricing.html">
-                  Pricing Plan
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="help-center.html">
-                  Help Center
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link btn-theme" href="#">
-                  Join us
-                </a>
-              </li>
-            </ul>
-          </div>
+            <Nav className="navbar-nav nav-links-cstm">
+              <Nav.Link className="nav-item">
+                <Link href="/" passHref>
+                  {/* TODO: Extract active logic */}
+                  <a className="nav-link active" aria-current="page">
+                    Home
+                  </a>
+                </Link>
+              </Nav.Link>
+              <Nav.Link className="nav-item">
+                <Link href="/about" passHref>
+                  <a className="nav-link ">About us</a>
+                </Link>
+              </Nav.Link>
+              <Nav.Link className="nav-item">
+                <Link href="/features" passHref>
+                  <a className="nav-link">Features</a>
+                </Link>
+              </Nav.Link>
+              <Nav.Link className="nav-item">
+                <Link href="/pricing" passHref>
+                  <a className="nav-link ">Pricing Plan</a>
+                </Link>
+              </Nav.Link>
+              <Nav.Link className="nav-item">
+                <Link href="/help" passHref>
+                  <a className="nav-link" href="help-center.html">
+                    Help Center
+                  </a>
+                </Link>
+              </Nav.Link>
+              <Nav.Link className="nav-item">
+                <Link href="/signup" passHref>
+                  <a className="nav-link btn-theme">Join us</a>
+                </Link>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
         </div>
-      </nav>
+      </Navbar>
 
       <div className="stars"></div>
       <div className="twinkling"></div>
       <div className="clouds"></div>
+
       {children}
+
       <footer className="text-center">
         <div className="container">
           <h1>Subscribe to join</h1>

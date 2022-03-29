@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import initAuth from "../utils/intiAuth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/style.scss";
+import "../styles/css-animation.scss";
 import { NextPage } from "next";
 import { AppProps } from "next/app";
 
