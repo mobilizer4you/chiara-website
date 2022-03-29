@@ -141,6 +141,7 @@ importers:
       next-react-svg: ^1.1.3
       next-svgr: ^0.0.2
       next-transpile-modules: 9.0.0
+      nprogress: ^0.2.0
       prisma-local: workspace:*
       react: 17.0.2
       react-bootstrap: ^2.2.2
@@ -166,6 +167,7 @@ importers:
       next-firebase-auth: 0.14.2_96969a849f2b98066b0f53904ac8a8d3
       next-react-svg: 1.1.3
       next-svgr: 0.0.2
+      nprogress: 0.2.0
       prisma-local: link:../../packages/prisma-local
       react: 17.0.2
       react-bootstrap: 2.2.2_react-dom@17.0.2+react@17.0.2
@@ -9068,6 +9070,10 @@ packages:
       console-control-strings: 1.1.0
       gauge: 3.0.2
       set-blocking: 2.0.0
+    dev: false
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha1-y480xTIT2JVyP8urkH6UIq28r7E=}
     dev: false
 
   /nth-check/1.0.2:

@@ -24,6 +24,7 @@
 		"next-firebase-auth": "^0.14.2",
 		"next-react-svg": "^1.1.3",
 		"next-svgr": "^0.0.2",
+		"nprogress": "^0.2.0",
 		"prisma-local": "workspace:*",
 		"react": "17.0.2",
 		"react-bootstrap": "^2.2.2",
