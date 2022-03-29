@@ -1,5 +1,6 @@
 import React from "react";
-import { Carousel, CarouselItemProps } from "react-bootstrap";
+import Image from "next/image";
+import { Carousel } from "react-bootstrap";
 import HomePageLayout from "../components/Layout/HomePageLayout";
 import ChartAnalyzerSvg from "../public/svg/chartAnalyzer.svg";
 import EducationOnDemandSvg from "../public/svg/educationOnDemand.svg";
@@ -141,13 +142,16 @@ const Features = () => {
                 ref={carouselRef}
                 activeIndex={index}
                 onSelect={handleSelect}
+                interval={null}
               >
                 <Carousel.Item>
-                  <img
-                    src="./images/slide1.png"
-                    className="d-block w-100"
-                    alt="..."
-                  />
+                  <div>
+                    <img
+                      src="./images/slide1.png"
+                      className="d-block w-100"
+                      alt="..."
+                    />
+                  </div>
                   <Carousel.Caption className=" d-none d-md-block cstm-caption">
                     <h3 className="mb-3">Chart Analyzer</h3>
                     <p>

@@ -3,7 +3,7 @@ import { Button } from "ui";
 import { useGetBooksQueryQuery } from "../generated/graphql";
 import { loadClient } from "../utils/utils";
 import Script from "next/script";
-
+import MoonSvg from "../public/images/moon-bg.svg";
 import {
   useAuthUser,
   withAuthUser,
@@ -27,9 +27,13 @@ const Web = () => {
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.js"></Script>
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></Script>
 
+      <Script id="show-banner" strategy="lazyOnload">
+        {`${script}`}
+      </Script>
+
       <header>
         <div className="container">
-          {/* <div className="moon" id="moon-trigger"></div>  */}
+          {/* <div className="moon" id="moon-trigger"></div> */}
           <div className="shape" id="moon"></div>
 
           <h1 className="big-title">
@@ -226,10 +230,6 @@ const Web = () => {
           </div>
         </div>
       </section>
-
-      <Script id="show-banner" strategy="lazyOnload">
-        {`${script}`}
-      </Script>
     </>
   );
 };
