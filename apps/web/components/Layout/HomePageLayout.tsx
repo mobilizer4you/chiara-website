@@ -3,11 +3,14 @@ import VisuallyHidden from "../VisuallyHidden";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Link from "next/link";
+import usePathActiveHook from "../../hooks/path-active-hook";
 type Props = {
   children: React.ReactNode;
 };
 
 const HomePageLayout = ({ children }: Props) => {
+  const pathName = usePathActiveHook();
+
   return (
     <>
       <Navbar
@@ -36,27 +39,54 @@ const HomePageLayout = ({ children }: Props) => {
               <Nav.Item role="link">
                 <Link href="/" passHref>
                   {/* TODO: Extract active logic */}
-                  <a className="nav-link">Home</a>
+                  <a
+                    className={`nav-link ${pathName === "/" ? "active" : null}`}
+                  >
+                    Home
+                  </a>
                 </Link>
               </Nav.Item>
               <Nav.Item>
                 <Link href="/about" passHref>
-                  <a className="nav-link ">About us</a>
+                  <a
+                    className={`nav-link ${
+                      pathName === "/about" ? "active" : null
+                    }`}
+                  >
+                    About us
+                  </a>
                 </Link>
               </Nav.Item>
               <Nav.Item>
                 <Link href="/features" passHref>
-                  <a className="nav-link">Features</a>
+                  <a
+                    className={`nav-link ${
+                      pathName === "/features" ? "active" : null
+                    }`}
+                  >
+                    Features
+                  </a>
                 </Link>
               </Nav.Item>
               <Nav.Item>
                 <Link href="/pricing" passHref>
-                  <a className="nav-link ">Pricing Plan</a>
+                  <a
+                    className={`nav-link ${
+                      pathName === "/pricing" ? "active" : null
+                    }`}
+                  >
+                    Pricing Plan
+                  </a>
                 </Link>
               </Nav.Item>
               <Nav.Item>
                 <Link href="/help" passHref>
-                  <a className="nav-link" href="help-center.html">
+                  <a
+                    className={`nav-link ${
+                      pathName === "/help" ? "active" : null
+                    }`}
+                    href="help-center.html"
+                  >
                     Help Center
                   </a>
                 </Link>
