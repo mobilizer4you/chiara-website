@@ -7,7 +7,7 @@ import EducationOnDemandSvg from "../public/svg/educationOnDemand.svg";
 import BuzzPortalSvg from "../public/svg/buzzPortal.svg";
 import StrategyBuilderSvg from "../public/svg/strategyBuilder.svg";
 import EconomicInsightSvg from "../public/svg/economicInsight.svg";
-import NewsletterSvg from "../public/svg/newsletter.svg";
+import NewsletterSvg from "../public/svg/newsLetter.svg";
 import TailoredIdeaSvg from "../public/svg/tailoredIdeas.svg";
 import FundamentalInsightSvg from "../public/svg/fundamentalInsight.svg";
 
