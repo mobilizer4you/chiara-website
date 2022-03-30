@@ -1,4 +1,4 @@
-var script = `var controller = new ScrollMagic.Controller();
+var controller = new ScrollMagic.Controller();
 console.log(controller)
   var animPosition1 = {
     left: $("#anim-position-1").offset().left,
@@ -110,6 +110,5 @@ console.log(controller)
   )
     .setTween(fifthAnimation)
     // .addIndicators({ name: "tween css class 5" }) 
-    .addTo(controller);`;
+    .addTo(controller);
 
-export { script };

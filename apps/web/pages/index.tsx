@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Button } from "ui";
+import { useRouter } from "next/router";
+
 import { useGetBooksQueryQuery } from "../generated/graphql";
 import { loadClient } from "../utils/utils";
 import Script from "next/script";
@@ -10,7 +12,7 @@ import {
   withAuthUserTokenSSR,
 } from "next-firebase-auth";
 import { clientLogout } from "../utils/firebase";
-import { script } from "../utils/homePageScript";
+
 import React from "react";
 import HomePageLayout from "../components/Layout/HomePageLayout";
 
@@ -18,7 +20,17 @@ const Web = () => {
   const client = loadClient({ endPoint: `http://localhost:4000/graphql` });
   const { data } = useGetBooksQueryQuery(client);
   const { email, displayName } = useAuthUser();
+  const router = useRouter();
+  React.useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "/js/animationScript.js";
+    script.async = true;
+    document.body.appendChild(script);
 
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [router]);
   return (
     <>
       <Script src="https://code.jquery.com/jquery-3.6.0.min.js"></Script>
@@ -27,9 +39,9 @@ const Web = () => {
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.js"></Script>
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></Script>
 
-      <Script id="show-banner" strategy="lazyOnload">
+      {/* <Script id="show-banner" strategy="lazyOnload">
         {`${script}`}
-      </Script>
+      </Script> */}
 
       <header>
         <div className="container">
