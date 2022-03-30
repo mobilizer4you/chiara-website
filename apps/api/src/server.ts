@@ -15,10 +15,7 @@ export const startApolloServer = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    plugins: [
-      ApolloServerPluginDrainHttpServer({ httpServer }),
-      ApolloServerPluginLandingPageGraphQLPlayground(),
-    ],
+    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
   await server.start();
   server.applyMiddleware({

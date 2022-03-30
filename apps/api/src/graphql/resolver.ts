@@ -1,4 +1,4 @@
-import { Resolvers, MutationLoginArgs } from "../generated/resolversTypes";
+import { Resolvers } from "../generated/resolversTypes";
 
 const books = [
   {
@@ -17,5 +17,20 @@ export const resolvers: Resolvers = {
       return books;
     },
   },
-  Mutation: {},
+  Mutation: {
+    storeUserInformation: (_, { storeUserInput }) => {
+      return {
+        status: {
+          success: true,
+          message: "Successfully stored user information",
+        },
+        user: {
+          id: "asdasdasad",
+          userName: storeUserInput.userName,
+          email: storeUserInput.email,
+          password: storeUserInput.password,
+        },
+      };
+    },
+  },
 };

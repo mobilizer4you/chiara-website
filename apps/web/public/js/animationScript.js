@@ -66,7 +66,7 @@ console.log(controller)
   var fifthAnimation = TweenMax.to("#moon", 1, {
     left: animPosition5.left,
     top: animPosition5.top,
-    width: animPosition5.width,
+    width: animPosition5.width + 24,
     height: animPosition5.height
   });
 
