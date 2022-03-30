@@ -11,38 +11,16 @@ export const typeDefs = gql`
     author: String
   }
 
-  type Account {
-    id: String!
-    userId: String!
-    type: String!
-    provider: String!
-    providerAccountId: String!
-    refresh_token: String
-    access_token: String
-    expires_at: Int
-    token_type: String
-    scope: String
-    id_token: String
-    session_state: String
-    user: User
-  }
-
   type User {
     id: String!
-    name: String
-    email: String
-    emailVerified: String
-    image: String
-    accounts: [Account]
-    sessions: [Session]
+    userName: String!
+    email: String!
   }
 
-  type Session {
-    id: String!
-    sessionToken: String!
-    userId: String!
-    expires: String!
-    user: User!
+  input StoreUserInput {
+    userName: String!
+    email: String!
+    password: String!
   }
 
   type MutationResponse {
@@ -50,15 +28,13 @@ export const typeDefs = gql`
     message: String!
   }
 
-  type loginResponse {
+  type storeUserInformation {
     status: MutationResponse!
-    user: User
-    token: String!
+    user: User!
   }
 
-  input loginRequest {
-    email: String!
-    password: String!
+  type Mutation {
+    storeUserInformation(storeUserInput: StoreUserInput!): storeUserInformation!
   }
 
   # The "Query" type is special: it lists all of the available queries that
@@ -66,9 +42,5 @@ export const typeDefs = gql`
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
     books: [Book]
-  }
-
-  type Mutation {
-    login(loginRequest: loginRequest!): loginResponse!
   }
 `;

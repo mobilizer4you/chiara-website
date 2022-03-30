@@ -22,23 +22,6 @@ export type Scalars = {
   Float: number;
 };
 
-export type Account = {
-  __typename?: "Account";
-  access_token?: Maybe<Scalars["String"]>;
-  expires_at?: Maybe<Scalars["Int"]>;
-  id: Scalars["String"];
-  id_token?: Maybe<Scalars["String"]>;
-  provider: Scalars["String"];
-  providerAccountId: Scalars["String"];
-  refresh_token?: Maybe<Scalars["String"]>;
-  scope?: Maybe<Scalars["String"]>;
-  session_state?: Maybe<Scalars["String"]>;
-  token_type?: Maybe<Scalars["String"]>;
-  type: Scalars["String"];
-  user?: Maybe<User>;
-  userId: Scalars["String"];
-};
-
 export type Book = {
   __typename?: "Book";
   author?: Maybe<Scalars["String"]>;
@@ -47,11 +30,11 @@ export type Book = {
 
 export type Mutation = {
   __typename?: "Mutation";
-  login: LoginResponse;
+  storeUserInformation: StoreUserInformation;
 };
 
-export type MutationLoginArgs = {
-  loginRequest: LoginRequest;
+export type MutationStoreUserInformationArgs = {
+  storeUserInput: StoreUserInput;
 };
 
 export type MutationResponse = {
@@ -65,36 +48,23 @@ export type Query = {
   books?: Maybe<Array<Maybe<Book>>>;
 };
 
-export type Session = {
-  __typename?: "Session";
-  expires: Scalars["String"];
-  id: Scalars["String"];
-  sessionToken: Scalars["String"];
-  user: User;
-  userId: Scalars["String"];
+export type StoreUserInput = {
+  email: Scalars["String"];
+  password: Scalars["String"];
+  userName: Scalars["String"];
 };
 
 export type User = {
   __typename?: "User";
-  accounts?: Maybe<Array<Maybe<Account>>>;
-  email?: Maybe<Scalars["String"]>;
-  emailVerified?: Maybe<Scalars["String"]>;
-  id: Scalars["String"];
-  image?: Maybe<Scalars["String"]>;
-  name?: Maybe<Scalars["String"]>;
-  sessions?: Maybe<Array<Maybe<Session>>>;
-};
-
-export type LoginRequest = {
   email: Scalars["String"];
-  password: Scalars["String"];
+  id: Scalars["String"];
+  userName: Scalars["String"];
 };
 
-export type LoginResponse = {
-  __typename?: "loginResponse";
+export type StoreUserInformation = {
+  __typename?: "storeUserInformation";
   status: MutationResponse;
-  token: Scalars["String"];
-  user?: Maybe<User>;
+  user: User;
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -207,74 +177,28 @@ export type DirectiveResolverFn<
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = ResolversObject<{
-  Account: ResolverTypeWrapper<Account>;
   Book: ResolverTypeWrapper<Book>;
   Boolean: ResolverTypeWrapper<Scalars["Boolean"]>;
-  Int: ResolverTypeWrapper<Scalars["Int"]>;
   Mutation: ResolverTypeWrapper<{}>;
   MutationResponse: ResolverTypeWrapper<MutationResponse>;
   Query: ResolverTypeWrapper<{}>;
-  Session: ResolverTypeWrapper<Session>;
+  StoreUserInput: StoreUserInput;
   String: ResolverTypeWrapper<Scalars["String"]>;
   User: ResolverTypeWrapper<User>;
-  loginRequest: LoginRequest;
-  loginResponse: ResolverTypeWrapper<LoginResponse>;
+  storeUserInformation: ResolverTypeWrapper<StoreUserInformation>;
 }>;
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = ResolversObject<{
-  Account: Account;
   Book: Book;
   Boolean: Scalars["Boolean"];
-  Int: Scalars["Int"];
   Mutation: {};
   MutationResponse: MutationResponse;
   Query: {};
-  Session: Session;
+  StoreUserInput: StoreUserInput;
   String: Scalars["String"];
   User: User;
-  loginRequest: LoginRequest;
-  loginResponse: LoginResponse;
-}>;
-
-export type AccountResolvers<
-  ContextType = any,
-  ParentType extends ResolversParentTypes["Account"] = ResolversParentTypes["Account"]
-> = ResolversObject<{
-  access_token?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  expires_at?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  id?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  id_token?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
-  provider?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  providerAccountId?: Resolver<
-    ResolversTypes["String"],
-    ParentType,
-    ContextType
-  >;
-  refresh_token?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  scope?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
-  session_state?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  token_type?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  type?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  user?: Resolver<Maybe<ResolversTypes["User"]>, ParentType, ContextType>;
-  userId?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+  storeUserInformation: StoreUserInformation;
 }>;
 
 export type BookResolvers<
@@ -290,11 +214,11 @@ export type MutationResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes["Mutation"] = ResolversParentTypes["Mutation"]
 > = ResolversObject<{
-  login?: Resolver<
-    ResolversTypes["loginResponse"],
+  storeUserInformation?: Resolver<
+    ResolversTypes["storeUserInformation"],
     ParentType,
     ContextType,
-    RequireFields<MutationLoginArgs, "loginRequest">
+    RequireFields<MutationStoreUserInformationArgs, "storeUserInput">
   >;
 }>;
 
@@ -318,65 +242,34 @@ export type QueryResolvers<
   >;
 }>;
 
-export type SessionResolvers<
-  ContextType = any,
-  ParentType extends ResolversParentTypes["Session"] = ResolversParentTypes["Session"]
-> = ResolversObject<{
-  expires?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  sessionToken?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  user?: Resolver<ResolversTypes["User"], ParentType, ContextType>;
-  userId?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-
 export type UserResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes["User"] = ResolversParentTypes["User"]
 > = ResolversObject<{
-  accounts?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Account"]>>>,
-    ParentType,
-    ContextType
-  >;
-  email?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
-  emailVerified?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
+  email?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
   id?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  image?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
-  name?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
-  sessions?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Session"]>>>,
-    ParentType,
-    ContextType
-  >;
+  userName?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
-export type LoginResponseResolvers<
+export type StoreUserInformationResolvers<
   ContextType = any,
-  ParentType extends ResolversParentTypes["loginResponse"] = ResolversParentTypes["loginResponse"]
+  ParentType extends ResolversParentTypes["storeUserInformation"] = ResolversParentTypes["storeUserInformation"]
 > = ResolversObject<{
   status?: Resolver<
     ResolversTypes["MutationResponse"],
     ParentType,
     ContextType
   >;
-  token?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  user?: Resolver<Maybe<ResolversTypes["User"]>, ParentType, ContextType>;
+  user?: Resolver<ResolversTypes["User"], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type Resolvers<ContextType = any> = ResolversObject<{
-  Account?: AccountResolvers<ContextType>;
   Book?: BookResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   MutationResponse?: MutationResponseResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
-  Session?: SessionResolvers<ContextType>;
   User?: UserResolvers<ContextType>;
-  loginResponse?: LoginResponseResolvers<ContextType>;
+  storeUserInformation?: StoreUserInformationResolvers<ContextType>;
 }>;
