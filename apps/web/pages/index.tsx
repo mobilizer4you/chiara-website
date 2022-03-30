@@ -22,6 +22,7 @@ const Web = () => {
   const { email, displayName } = useAuthUser();
   const router = useRouter();
   React.useEffect(() => {
+    if (typeof window === "undefined") return;
     const script = document.createElement("script");
     script.src = "/js/animationScript.js";
     script.async = true;
@@ -33,11 +34,26 @@ const Web = () => {
   }, [router]);
   return (
     <>
-      <Script src="https://code.jquery.com/jquery-3.6.0.min.js"></Script>
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></Script>
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></Script>
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.js"></Script>
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></Script>
+      <Script
+        strategy="beforeInteractive"
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+      ></Script>
+      <Script
+        strategy="beforeInteractive"
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+      ></Script>
+      <Script
+        strategy="beforeInteractive"
+        src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"
+      ></Script>
+      <Script
+        strategy="beforeInteractive"
+        src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.js"
+      ></Script>
+      <Script
+        strategy="beforeInteractive"
+        src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"
+      ></Script>
 
       {/* <Script id="show-banner" strategy="lazyOnload">
         {`${script}`}
