@@ -3,6 +3,7 @@ import {
   AuthAction,
   withAuthUser,
 } from "next-firebase-auth";
+import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
@@ -111,15 +112,16 @@ const SignIn = () => {
             </div>
             <p className="text-center mt-5">
               Don&apos;t have an account?{" "}
-              <a
-                href="/signup"
-                style={{
-                  color: "#02d9ff",
-                  fontWeight: 600,
-                }}
-              >
-                Sign up
-              </a>
+              <Link href="/sign-up" passHref>
+                <a
+                  style={{
+                    color: "#02d9ff",
+                    fontWeight: 600,
+                  }}
+                >
+                  Sign up
+                </a>
+              </Link>
             </p>
           </div>
         </div>

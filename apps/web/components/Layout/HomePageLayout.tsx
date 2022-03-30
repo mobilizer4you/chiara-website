@@ -92,7 +92,7 @@ const HomePageLayout = ({ children }: Props) => {
                 </Link>
               </Nav.Item>
               <Nav.Item>
-                <Link href="/signup" passHref>
+                <Link href="/sign-up" passHref>
                   <a className="nav-link btn-theme">Join us</a>
                 </Link>
               </Nav.Item>
