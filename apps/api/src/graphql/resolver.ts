@@ -1,3 +1,5 @@
+import { ApolloError } from "apollo-server-core";
+import { getUserInformation, storeUserInformation } from "../auth/auth";
 import { Resolvers } from "../generated/resolversTypes";
 
 const books = [
@@ -16,21 +18,25 @@ export const resolvers: Resolvers = {
     books: () => {
       return books;
     },
+    getUserInformation: async (_, { userId }) => {
+      try {
+        const data = getUserInformation(userId);
+        return data;
+      } catch (error) {
+        console.error(error);
+        throw new ApolloError(error as any);
+      }
+    },
   },
   Mutation: {
-    storeUserInformation: (_, { storeUserInput }) => {
-      return {
-        status: {
-          success: true,
-          message: "Successfully stored user information",
-        },
-        user: {
-          id: "asdasdasad",
-          userName: storeUserInput.userName,
-          email: storeUserInput.email,
-          password: storeUserInput.password,
-        },
-      };
+    storeUserInformation: async (_, { storeUserInput }) => {
+      try {
+        const data = await storeUserInformation(storeUserInput);
+        return data;
+      } catch (error) {
+        console.error(error);
+        throw new ApolloError(error as any);
+      }
     },
   },
 };

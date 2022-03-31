@@ -28,9 +28,15 @@ export type Book = {
   title?: Maybe<Scalars["String"]>;
 };
 
+export type GetUserInformationResponse = {
+  __typename?: "GetUserInformationResponse";
+  status: MutationResponse;
+  user?: Maybe<User>;
+};
+
 export type Mutation = {
   __typename?: "Mutation";
-  storeUserInformation: StoreUserInformation;
+  storeUserInformation: StoreUserInformationResponse;
 };
 
 export type MutationStoreUserInformationArgs = {
@@ -46,25 +52,30 @@ export type MutationResponse = {
 export type Query = {
   __typename?: "Query";
   books?: Maybe<Array<Maybe<Book>>>;
+  getUserInformation: GetUserInformationResponse;
+};
+
+export type QueryGetUserInformationArgs = {
+  userId: Scalars["String"];
+};
+
+export type StoreUserInformationResponse = {
+  __typename?: "StoreUserInformationResponse";
+  status: MutationResponse;
+  user: User;
 };
 
 export type StoreUserInput = {
   email: Scalars["String"];
-  password: Scalars["String"];
-  userName: Scalars["String"];
+  id: Scalars["String"];
+  username: Scalars["String"];
 };
 
 export type User = {
   __typename?: "User";
   email: Scalars["String"];
   id: Scalars["String"];
-  userName: Scalars["String"];
-};
-
-export type StoreUserInformation = {
-  __typename?: "storeUserInformation";
-  status: MutationResponse;
-  user: User;
+  username: Scalars["String"];
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -179,26 +190,28 @@ export type DirectiveResolverFn<
 export type ResolversTypes = ResolversObject<{
   Book: ResolverTypeWrapper<Book>;
   Boolean: ResolverTypeWrapper<Scalars["Boolean"]>;
+  GetUserInformationResponse: ResolverTypeWrapper<GetUserInformationResponse>;
   Mutation: ResolverTypeWrapper<{}>;
   MutationResponse: ResolverTypeWrapper<MutationResponse>;
   Query: ResolverTypeWrapper<{}>;
+  StoreUserInformationResponse: ResolverTypeWrapper<StoreUserInformationResponse>;
   StoreUserInput: StoreUserInput;
   String: ResolverTypeWrapper<Scalars["String"]>;
   User: ResolverTypeWrapper<User>;
-  storeUserInformation: ResolverTypeWrapper<StoreUserInformation>;
 }>;
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = ResolversObject<{
   Book: Book;
   Boolean: Scalars["Boolean"];
+  GetUserInformationResponse: GetUserInformationResponse;
   Mutation: {};
   MutationResponse: MutationResponse;
   Query: {};
+  StoreUserInformationResponse: StoreUserInformationResponse;
   StoreUserInput: StoreUserInput;
   String: Scalars["String"];
   User: User;
-  storeUserInformation: StoreUserInformation;
 }>;
 
 export type BookResolvers<
@@ -210,12 +223,25 @@ export type BookResolvers<
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
+export type GetUserInformationResponseResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes["GetUserInformationResponse"] = ResolversParentTypes["GetUserInformationResponse"]
+> = ResolversObject<{
+  status?: Resolver<
+    ResolversTypes["MutationResponse"],
+    ParentType,
+    ContextType
+  >;
+  user?: Resolver<Maybe<ResolversTypes["User"]>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
 export type MutationResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes["Mutation"] = ResolversParentTypes["Mutation"]
 > = ResolversObject<{
   storeUserInformation?: Resolver<
-    ResolversTypes["storeUserInformation"],
+    ResolversTypes["StoreUserInformationResponse"],
     ParentType,
     ContextType,
     RequireFields<MutationStoreUserInformationArgs, "storeUserInput">
@@ -240,21 +266,17 @@ export type QueryResolvers<
     ParentType,
     ContextType
   >;
+  getUserInformation?: Resolver<
+    ResolversTypes["GetUserInformationResponse"],
+    ParentType,
+    ContextType,
+    RequireFields<QueryGetUserInformationArgs, "userId">
+  >;
 }>;
 
-export type UserResolvers<
+export type StoreUserInformationResponseResolvers<
   ContextType = any,
-  ParentType extends ResolversParentTypes["User"] = ResolversParentTypes["User"]
-> = ResolversObject<{
-  email?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  userName?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-
-export type StoreUserInformationResolvers<
-  ContextType = any,
-  ParentType extends ResolversParentTypes["storeUserInformation"] = ResolversParentTypes["storeUserInformation"]
+  ParentType extends ResolversParentTypes["StoreUserInformationResponse"] = ResolversParentTypes["StoreUserInformationResponse"]
 > = ResolversObject<{
   status?: Resolver<
     ResolversTypes["MutationResponse"],
@@ -265,11 +287,22 @@ export type StoreUserInformationResolvers<
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
+export type UserResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes["User"] = ResolversParentTypes["User"]
+> = ResolversObject<{
+  email?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
+  username?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
 export type Resolvers<ContextType = any> = ResolversObject<{
   Book?: BookResolvers<ContextType>;
+  GetUserInformationResponse?: GetUserInformationResponseResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   MutationResponse?: MutationResponseResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
+  StoreUserInformationResponse?: StoreUserInformationResponseResolvers<ContextType>;
   User?: UserResolvers<ContextType>;
-  storeUserInformation?: StoreUserInformationResolvers<ContextType>;
 }>;

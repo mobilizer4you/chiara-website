@@ -13,14 +13,14 @@ export const typeDefs = gql`
 
   type User {
     id: String!
-    userName: String!
+    username: String!
     email: String!
   }
 
   input StoreUserInput {
-    userName: String!
+    id: String!
+    username: String!
     email: String!
-    password: String!
   }
 
   type MutationResponse {
@@ -28,13 +28,20 @@ export const typeDefs = gql`
     message: String!
   }
 
-  type storeUserInformation {
+  type StoreUserInformationResponse {
     status: MutationResponse!
     user: User!
   }
 
   type Mutation {
-    storeUserInformation(storeUserInput: StoreUserInput!): storeUserInformation!
+    storeUserInformation(
+      storeUserInput: StoreUserInput!
+    ): StoreUserInformationResponse!
+  }
+
+  type GetUserInformationResponse {
+    status: MutationResponse!
+    user: User
   }
 
   # The "Query" type is special: it lists all of the available queries that
@@ -42,5 +49,6 @@ export const typeDefs = gql`
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
     books: [Book]
+    getUserInformation(userId: String!): GetUserInformationResponse!
   }
 `;
