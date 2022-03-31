@@ -22,11 +22,12 @@ export type Scalars = {
   Float: number;
 };
 
-export enum AuthProvider {
-  Email = "EMAIL",
-  Google = "GOOGLE",
-}
+export const AuthProvider = {
+  Email: "EMAIL",
+  Google: "GOOGLE",
+} as const;
 
+export type AuthProvider = typeof AuthProvider[keyof typeof AuthProvider];
 export type Book = {
   __typename?: "Book";
   author?: Maybe<Scalars["String"]>;

@@ -1,5 +1,5 @@
 import { GetUserInformationResponse } from "./../generated/resolversTypes";
-import { PrismaClient, User } from "@prisma/client";
+import { PrismaClient, User, AuthProvider } from "@prisma/client";
 import {
   StoreUserInformationResponse,
   StoreUserInput,

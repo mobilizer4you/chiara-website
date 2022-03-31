@@ -8,3 +8,4 @@ generates:
       - typescript-resolvers
     config:
       useIndexSignature: true
+      enumsAsConst: true
