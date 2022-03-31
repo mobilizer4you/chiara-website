@@ -2,13 +2,16 @@ import React from "react";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import NProgress from "nprogress";
 import Router from "next/router";
+import { NextPage } from "next";
+import { AppProps } from "next/app";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { Toaster } from "react-hot-toast";
+
 import initAuth from "../utils/intiAuth";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/style.scss";
 import "../styles/css-animation.scss";
-import { NextPage } from "next";
-import { AppProps } from "next/app";
 import "../styles/nprogress.css";
 
 type NextPageWithLayout = NextPage & {
@@ -32,6 +35,7 @@ export default function MyApp({ Component, pageProps }) {
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
         {getLayout(<Component {...pageProps} />)}
+        <Toaster />
       </Hydrate>
       <ReactQueryDevtools />
     </QueryClientProvider>

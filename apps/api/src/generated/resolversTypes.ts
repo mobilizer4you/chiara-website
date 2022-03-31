@@ -22,6 +22,11 @@ export type Scalars = {
   Float: number;
 };
 
+export enum AuthProvider {
+  Email = "EMAIL",
+  Google = "GOOGLE",
+}
+
 export type Book = {
   __typename?: "Book";
   author?: Maybe<Scalars["String"]>;
@@ -66,6 +71,7 @@ export type StoreUserInformationResponse = {
 };
 
 export type StoreUserInput = {
+  authProvider: AuthProvider;
   email: Scalars["String"];
   id: Scalars["String"];
   username: Scalars["String"];
@@ -73,6 +79,7 @@ export type StoreUserInput = {
 
 export type User = {
   __typename?: "User";
+  authProvider: AuthProvider;
   email: Scalars["String"];
   id: Scalars["String"];
   username: Scalars["String"];
@@ -188,6 +195,7 @@ export type DirectiveResolverFn<
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = ResolversObject<{
+  AuthProvider: AuthProvider;
   Book: ResolverTypeWrapper<Book>;
   Boolean: ResolverTypeWrapper<Scalars["Boolean"]>;
   GetUserInformationResponse: ResolverTypeWrapper<GetUserInformationResponse>;
@@ -291,6 +299,11 @@ export type UserResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes["User"] = ResolversParentTypes["User"]
 > = ResolversObject<{
+  authProvider?: Resolver<
+    ResolversTypes["AuthProvider"],
+    ParentType,
+    ContextType
+  >;
   email?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
   id?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
   username?: Resolver<ResolversTypes["String"], ParentType, ContextType>;

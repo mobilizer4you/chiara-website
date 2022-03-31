@@ -10,12 +10,14 @@ const storeUserInformation = async ({
   username,
   email,
   id,
+  authProvider,
 }: StoreUserInput): Promise<StoreUserInformationResponse> => {
   const user = await prisma.user.create({
     data: {
       id,
       username,
       email,
+      authProvider,
     },
   });
 

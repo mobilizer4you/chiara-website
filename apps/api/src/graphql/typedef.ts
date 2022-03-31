@@ -15,12 +15,19 @@ export const typeDefs = gql`
     id: String!
     username: String!
     email: String!
+    authProvider: AuthProvider!
+  }
+
+  enum AuthProvider {
+    GOOGLE
+    EMAIL
   }
 
   input StoreUserInput {
     id: String!
     username: String!
     email: String!
+    authProvider: AuthProvider!
   }
 
   type MutationResponse {
@@ -33,15 +40,15 @@ export const typeDefs = gql`
     user: User!
   }
 
+  type GetUserInformationResponse {
+    status: MutationResponse!
+    user: User
+  }
+
   type Mutation {
     storeUserInformation(
       storeUserInput: StoreUserInput!
     ): StoreUserInformationResponse!
-  }
-
-  type GetUserInformationResponse {
-    status: MutationResponse!
-    user: User
   }
 
   # The "Query" type is special: it lists all of the available queries that

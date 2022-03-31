@@ -1,17 +1,22 @@
+import { ErrorMessage } from "@hookform/error-message";
 import {
   withAuthUserTokenSSR,
   AuthAction,
   withAuthUser,
 } from "next-firebase-auth";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { useMutation } from "react-query";
 import HomePageLayout from "../components/Layout/HomePageLayout";
+import { useStoreUserInformationMutation } from "../generated/graphql";
 import {
   clientCreateUserWithEmailAndPassword,
   clientSignInWithEmailAndPassword,
 } from "../utils/firebase";
+import { loadClient, ROUTES } from "../utils/utils";
 
 type FormType = {
   email: string;
@@ -20,6 +25,10 @@ type FormType = {
 };
 
 const SignUp = () => {
+  const [status, setStatus] = React.useState<
+    "idle" | "success" | "error" | "loading"
+  >("idle");
+
   const {
     register,
     handleSubmit,
@@ -27,27 +36,44 @@ const SignUp = () => {
     getValues,
     formState: { errors },
   } = useForm<FormType>();
-  const { mutate } = useMutation<any, any, FormType>(
-    clientCreateUserWithEmailAndPassword,
-    {
-      onError: (error) => {
-        if (error.errors) {
-          const messages: any[] = error.errors.map((e) => e.message);
-          if (messages.includes("EMAIL_NOT_FOUND")) {
-            setError("email", {
-              message: "Email not found",
-            });
-          }
-        }
-      },
-    }
-  );
+  const router = useRouter();
+  const client = loadClient({});
+
+  const { mutate } = useStoreUserInformationMutation(client, {
+    onSuccess: (data) => {
+      console.log("🚀 ~ file: sign-up.tsx ~ line 43 ~ SignUp ~ data", data);
+      toast.success("Successfully created user");
+      router.push(ROUTES.HOME);
+    },
+    onError: (error) => {
+      console.error(error);
+      toast.error("Error creating user");
+    },
+  });
+
   const onSubmit = (data: FormType) => {
-    console.log("🚀 ~ file: sign-up.tsx ~ line 44 ~ onSubmit ~ data", data);
-    // mutate({
-    //   email: data.email,
-    //   password: data.password,
-    // });
+    setStatus("loading");
+    clientCreateUserWithEmailAndPassword({
+      email: data.email,
+      password: data.password,
+    })
+      .then((data) => {
+        setStatus("success");
+        mutate({
+          storeUserInput: {
+            email: data.user.email,
+            username: data.user.displayName,
+            id: data.user.uid,
+          },
+        });
+      })
+      .catch((error) => {
+        if (error.code === "auth/email-already-in-use") {
+          setError("email", {
+            message: "Email already in use",
+          });
+        }
+      });
   };
 
   return (
@@ -80,8 +106,17 @@ const SignUp = () => {
                       value: true,
                       message: "Email is required",
                     },
+                    validate: (value) => {
+                      const regex = new RegExp(
+                        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                      );
+                      if (!regex.test(value)) {
+                        return "Email is not valid";
+                      }
+                    },
                   })}
                 />
+                {errors && errors.email ? <p>{errors.email.message}</p> : null}
               </div>
               <div className="form-group">
                 <label htmlFor="password" className="form-label">
@@ -103,6 +138,9 @@ const SignUp = () => {
                     },
                   })}
                 />
+                {errors && errors.password ? (
+                  <p>{errors.password.message}</p>
+                ) : null}
               </div>
               <div className="form-group">
                 <label htmlFor="confirm-password" className="form-label">
@@ -125,10 +163,13 @@ const SignUp = () => {
                     },
                   })}
                 />
+                {errors && errors.confirmPassword ? (
+                  <p>{errors.confirmPassword.message}</p>
+                ) : null}
               </div>
             </form>
             <div className="text-center btn-holder">
-              <button form="sign-up-form" className="btn-theme">
+              <button type="submit" form="sign-up-form" className="btn-theme">
                 Sign up
               </button>
             </div>
@@ -160,10 +201,4 @@ SignUp.getLayout = function getLayout(page: React.ReactElement) {
   return <HomePageLayout>{page}</HomePageLayout>;
 };
 
-export const getServerSideProps = withAuthUserTokenSSR({
-  whenAuthed: AuthAction.REDIRECT_TO_APP,
-})();
-
-export default withAuthUser({
-  whenAuthed: AuthAction.REDIRECT_TO_APP,
-})(SignUp);
+export default SignUp;

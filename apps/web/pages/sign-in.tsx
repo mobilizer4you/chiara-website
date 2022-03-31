@@ -7,6 +7,8 @@ import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
+import { ErrorMessage } from "@hookform/error-message";
+
 import HomePageLayout from "../components/Layout/HomePageLayout";
 import {
   clientSignInWithEmailAndPassword,
@@ -25,27 +27,20 @@ const SignIn = () => {
     setError,
     formState: { errors },
   } = useForm<FormType>();
-  const { mutate } = useMutation<any, any, FormType>(
-    clientSignInWithEmailAndPassword,
-    {
-      onError: (error) => {
-        if (error.errors) {
-          const messages: any[] = error.errors.map((e) => e.message);
-          if (messages.includes("EMAIL_NOT_FOUND")) {
-            setError("email", {
-              message: "Email not found",
-            });
-          }
-        }
-      },
+
+  const onSubmit = async (data: FormType) => {
+    try {
+      const info = await clientSignInWithEmailAndPassword({
+        email: data.email,
+        password: data.password,
+      });
+    } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        setError("email", {
+          message: "Email already in use",
+        });
+      }
     }
-  );
-  const onSubmit = (data: FormType) => {
-    console.log("🚀 ~ file: signin.tsx ~ line 43 ~ onSubmit ~ data", data);
-    // mutate({
-    //   email: data.email,
-    //   password: data.password,
-    // });
   };
 
   const onError = (error: any) => {
@@ -69,7 +64,7 @@ const SignIn = () => {
           <div className="col-md-5 col-xl-5 col-lg-5 mx-auto signup-container">
             <form
               className="authenticate"
-              onSubmit={handleSubmit(onSubmit, onError)}
+              onSubmit={handleSubmit(onSubmit)}
               id="signin-form"
             >
               <div className="form-group">
@@ -85,8 +80,17 @@ const SignIn = () => {
                       value: true,
                       message: "Email is required",
                     },
+                    validate: (value) => {
+                      const regex = new RegExp(
+                        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                      );
+                      if (!regex.test(value)) {
+                        return "Email is not valid";
+                      }
+                    },
                   })}
                 />
+                {errors && errors.email ? <p>{errors.email.message}</p> : null}
               </div>
               <div className="form-group">
                 <label htmlFor="password" className="form-label">
@@ -101,8 +105,15 @@ const SignIn = () => {
                       value: true,
                       message: "Password is required",
                     },
+                    minLength: {
+                      value: 8,
+                      message: "Password must be at least 8 characters",
+                    },
                   })}
                 />
+                {errors && errors.password ? (
+                  <p>{errors.password.message}</p>
+                ) : null}
               </div>
             </form>
             <div className="text-center btn-holder">

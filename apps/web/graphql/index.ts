@@ -1,6 +1,6 @@
 import gql from "gql";
 
-const getBooksQuery = gql`
+gql`
   query getBooksQuery {
     books {
       title
@@ -9,20 +9,33 @@ const getBooksQuery = gql`
   }
 `;
 
-const loginMutation = gql`
-  mutation login($input: loginRequest!) {
-    login(loginRequest: $input) {
+gql`
+  query getUserInformation($input: String!) {
+    getUserInformation(userId: $input) {
+      status {
+        message
+        success
+      }
+      user {
+        id
+        username
+        email
+      }
+    }
+  }
+`;
+
+gql`
+  mutation storeUserInformation($storeUserInput: StoreUserInput!) {
+    storeUserInformation(storeUserInput: $storeUserInput) {
       status {
         success
         message
       }
-      token
       user {
         id
-        name
+        username
         email
-        emailVerified
-        image
       }
     }
   }
