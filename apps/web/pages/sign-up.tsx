@@ -41,7 +41,6 @@ const SignUp = () => {
 
   const { mutate } = useStoreUserInformationMutation(client, {
     onSuccess: (data) => {
-      console.log("🚀 ~ file: sign-up.tsx ~ line 43 ~ SignUp ~ data", data);
       toast.success("Successfully created user");
       router.push(ROUTES.HOME);
     },

@@ -33,6 +33,7 @@
 		"react-hook-form": "^7.28.1",
 		"react-hot-toast": "^2.2.0",
 		"react-query": "^3.34.16",
+		"react-use-wizard": "^2.1.2",
 		"ui": "workspace:*"
 	},
 	"devDependencies": {

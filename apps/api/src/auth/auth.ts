@@ -20,6 +20,7 @@ const storeUserInformation = async ({
       authProvider,
     },
   });
+  user.authProvider;
 
   return {
     status: {
