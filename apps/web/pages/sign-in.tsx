@@ -35,16 +35,23 @@ const SignIn = () => {
         password: data.password,
       });
     } catch (error) {
+      console.log("🚀 ~ file: sign-in.tsx ~ line 38 ~ onSubmit ~ error", error);
       if (error.code === "auth/email-already-in-use") {
         setError("email", {
-          message: "Email already in use",
+          message: error.message ?? "Email already in use",
+        });
+      }
+      if (error.code === "auth/wrong-password") {
+        setError("password", {
+          message: error.message ?? "Invalid password",
+        });
+      }
+      if (error.code === "auth/too-many-requests") {
+        setError("password", {
+          message: error.message ?? "Too many requests. Try again later",
         });
       }
     }
-  };
-
-  const onError = (error: any) => {
-    console.log("🚀 ~ file: signin.tsx ~ line 51 ~ onError ~ error", error);
   };
 
   const handleGoogleSignIn = () => {
