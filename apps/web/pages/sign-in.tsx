@@ -4,16 +4,16 @@ import {
   withAuthUser,
 } from "next-firebase-auth";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useMutation } from "react-query";
-import { ErrorMessage } from "@hookform/error-message";
 
 import HomePageLayout from "../components/Layout/HomePageLayout";
 import {
   clientSignInWithEmailAndPassword,
   clientSignInWithGoogle,
 } from "../utils/firebase";
+import { ROUTES } from "../utils/utils";
 
 type FormType = {
   email: string;
@@ -27,6 +27,7 @@ const SignIn = () => {
     setError,
     formState: { errors },
   } = useForm<FormType>();
+  const router = useRouter();
 
   const onSubmit = async (data: FormType) => {
     try {
@@ -34,6 +35,7 @@ const SignIn = () => {
         email: data.email,
         password: data.password,
       });
+      router.push(ROUTES.HOME);
     } catch (error) {
       console.log("🚀 ~ file: sign-in.tsx ~ line 38 ~ onSubmit ~ error", error);
       if (error.code === "auth/email-already-in-use") {
@@ -156,10 +158,12 @@ SignIn.getLayout = function getLayout(page: React.ReactElement) {
   return <HomePageLayout>{page}</HomePageLayout>;
 };
 
-export const getServerSideProps = withAuthUserTokenSSR({
-  whenAuthed: AuthAction.REDIRECT_TO_APP,
-})();
+// export const getServerSideProps = withAuthUserTokenSSR({
+//   whenAuthed: AuthAction.REDIRECT_TO_APP,
+// })();
 
-export default withAuthUser({
-  whenAuthed: AuthAction.REDIRECT_TO_APP,
-})(SignIn);
+// export default withAuthUser({
+//   whenAuthed: AuthAction.REDIRECT_TO_APP,
+// })(SignIn);
+
+export default SignIn;

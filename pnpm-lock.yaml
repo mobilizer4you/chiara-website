@@ -152,6 +152,7 @@ importers:
       react-hook-form: ^7.28.1
       react-hot-toast: ^2.2.0
       react-query: ^3.34.16
+      react-use-wizard: ^2.1.2
       sass: ^1.49.9
       tsconfig: workspace:*
       typescript: ^4.5.3
@@ -180,6 +181,7 @@ importers:
       react-hook-form: 7.28.1_react@17.0.2
       react-hot-toast: 2.2.0_react-dom@17.0.2+react@17.0.2
       react-query: 3.34.16_react-dom@17.0.2+react@17.0.2
+      react-use-wizard: 2.1.2_react-dom@17.0.2+react@17.0.2
       ui: link:../../packages/ui
     devDependencies:
       '@graphql-codegen/cli': 2.6.2_e79e62fe450383fd2d418267dc75e645
@@ -9872,6 +9874,17 @@ packages:
       dom-helpers: 5.2.1
       loose-envify: 1.4.0
       prop-types: 15.8.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
+  /react-use-wizard/2.1.2_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-W/wSf/jGp1gWM0bwk/7rVW7F8g8TUC2Y4TBBmR9l1TuKoPnC9yrwNv+jrlgUEL0LM83NfX2YbSGCPfUIR79Ekg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     dev: false
