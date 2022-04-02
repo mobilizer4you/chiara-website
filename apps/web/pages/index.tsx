@@ -18,7 +18,15 @@ import HomePageLayout from "../components/Layout/HomePageLayout";
 
 const Web = () => {
   const client = loadClient({});
-  const { data } = useGetBooksQueryQuery(client);
+  useGetBooksQueryQuery(client, null, {
+    onSuccess: (data) => {
+      console.info("Successfully fetched books", data);
+      console.log(
+        "🚀 ~ file: index.tsx ~ line 64 ~ useGetBooksQueryQuery ~ data",
+        data
+      );
+    },
+  });
   const { email, displayName } = useAuthUser();
   const router = useRouter();
   React.useEffect(() => {
