@@ -17,7 +17,7 @@ import React from "react";
 import HomePageLayout from "../components/Layout/HomePageLayout";
 
 const Web = () => {
-  const client = loadClient({ endPoint: `http://localhost:4000/graphql` });
+  const client = loadClient({});
   const { data } = useGetBooksQueryQuery(client);
   const { email, displayName } = useAuthUser();
   const router = useRouter();
