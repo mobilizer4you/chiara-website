@@ -48,7 +48,7 @@ const Features = () => {
       </section>
       <section className="feature">
         <div className="container">
-          <div className="col-8 col-lg-8 col-md-8 mx-auto">
+          <div className="col-lg-8 col-md-8 col-sm-12 mx-auto">
             <div
               id="carouselExampleIndicators"
               className="carousel slide carousel-fade cstm-carousel-inner"
@@ -315,9 +315,9 @@ const Features = () => {
       </section>
       <section className="app-promo">
         <div className="container">
-          <div className="col-md-8 col-lg-8 col-xl-8 mx-auto">
+          <div className="col-md-8 col-lg-8 col-xl-8 col-sm-12 mx-auto">
             <div className="row">
-              <div className="col-6 col-md-6 col-lg-6 col-xl-6">
+              <div className=" col-md-6 col-lg-6 col-xl-6 col-sm-12">
                 <h3>Our wallet Application</h3>
                 <p>
                   Attention in when in just something bread not hundred well,
@@ -327,7 +327,7 @@ const Features = () => {
                   facilitate far were house.
                 </p>
               </div>
-              <div className="col-5 col-md-5 col-lg-5 col-xl-5 offse-md-1 offset-lg-1 offset-xl-1 offset-1 position-relative">
+              <div className="col-md-5 col-lg-5 col-xl-5 offse-md-1 col-sm-12 offset-lg-1 offset-xl-1 position-relative sm-margin-phone">
                 <div className="circle-animate"></div>
                 <img
                   src="./images/phone.png"
