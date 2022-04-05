@@ -39,6 +39,7 @@ const Features = () => {
     <div>
       <header>
         <div className="container">
+          <div className="shape" id="moon"></div>
           <h1 className="big-title mb-5">Features</h1>
         </div>
       </header>

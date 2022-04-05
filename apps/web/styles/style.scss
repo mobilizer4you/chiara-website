@@ -776,6 +776,27 @@ footer {
 // Sign up
 
 @media only screen and (max-width: 844px) {
+	.help-center{
+		.help-block{
+			font-size: 24px;
+			label{
+				width: 60%;
+			}
+			span{
+				display: flex;
+				img{
+					position: relative;
+					justify-content: flex-end;
+				}
+			}
+		}
+	}
+	.pricing{
+		padding-top: 200px;
+		.plan{
+			margin-bottom: 40px;
+		}
+	}
 	.cstm-carousel-inner{
 		.carousel-control-next{
 			z-index: 3;
