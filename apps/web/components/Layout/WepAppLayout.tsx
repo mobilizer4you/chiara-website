@@ -71,8 +71,10 @@ const WebAppLayout = ({ children }: Props) => {
                 <NavDropdown.Item href="#action/3.2">
                   Profile Settings
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Accounts and Billing
+                <NavDropdown.Item>
+                  <Link href={ROUTES.APP.USER.ACCOUNT} passHref>
+                    <a>Account Settings</a>
+                  </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.4">
                   Help Center

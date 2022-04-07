@@ -7,6 +7,7 @@ import WebAppLayout from "../../components/Layout/WepAppLayout";
 import { ROUTES } from "../../utils/utils";
 import Logo from "../../../web/public/images/logo.svg";
 import SearchIcon from "../../../web/public/images/icon-search.svg";
+import VisuallyHidden from "../../components/VisuallyHidden";
 
 const BuzzPortal = () => {
   return (
@@ -23,7 +24,7 @@ const BuzzPortal = () => {
             <div className="search-ticker-buzz col-md-7 col-xl-7 col-lg-7">
               <label htmlFor="">Enter name of the economic event</label>
               <div className="input-container-lg">
-                <input type="text" />
+                <input id="search" type="text" title="search" />
                 <SearchIcon></SearchIcon>
               </div>
             </div>
@@ -127,7 +128,7 @@ const BuzzPortal = () => {
                           <td>
                             <div className="cstm-progress">
                               <span>169</span>
-                              <ProgressBar variant="info" now={100} />
+                              <ProgressBar variant="info" now={65} />
                             </div>
                           </td>
                         </tr>
@@ -138,7 +139,7 @@ const BuzzPortal = () => {
                           <td>
                             <div className="cstm-progress">
                               <span>169</span>
-                              <ProgressBar variant="info" now={100} />
+                              <ProgressBar variant="info" now={32} />
                             </div>
                           </td>
                         </tr>
