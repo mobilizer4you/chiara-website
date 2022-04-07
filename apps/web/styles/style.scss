@@ -5,6 +5,21 @@
 $base-color: #050519;
 $font-color-w: #fff;
 
+// color profile
+$blue-burn: #141466;
+$blue-burn-hover: #2d2d65;
+$blue-tone1: #0D0D2C;
+$color-w: #ffff;
+// color profile
+
+// Mixins
+@mixin button {
+	border: 0px;
+	border-radius: 4px;
+	padding: 8px 16px;
+}
+// Mixins
+
 // Themes and colors
 
 // Body initials and font size
@@ -663,6 +678,14 @@ footer {
 			}
 		}
 	}
+	.dropdown-menu{
+		background: $blue-burn;
+		.dropdown-item{
+			&:hover{
+				background: #0b0b37;
+			}
+		}
+	}
 }
 .navbar-brand {
 	img {
@@ -672,7 +695,7 @@ footer {
 //Navbar
 
 .moon {
-	width: 100px;
+		width: 100px;
 	height: 100px;
 	position: absolute;
 	top: 15%;
@@ -775,7 +798,158 @@ footer {
 }
 // Sign up
 
+// Web App
+
+.btn-watchlist{
+	@include button;
+	background: $blue-burn;
+	color: $color-w;
+	&:hover{
+		background: $blue-burn-hover;
+	}
+
+}
+.search-ticker-container{
+	position: absolute;
+	width: 100%;
+	top: 300px;
+	z-index: 3;
+	.logo-center{
+		text-align: center;
+		svg{
+			transform: scale(2);
+		}
+	}
+	.search-ticker-box{
+		background: #0D0D2C;
+		width: 100%;
+		display: flex;
+		height: 45px;
+		margin-top: 50px;
+		border: 1px solid $blue-burn;
+		border-radius: 4px;
+		padding: 4px;
+		display: flex;
+		align-items: center;
+		svg{
+			margin-left: 5px;
+		}
+		input{
+			flex-grow: 1;
+			border: 0px;
+			background: transparent;
+			color: $font-color-w;
+			padding-left: 20px;
+			&:focus{
+				box-shadow: none;
+				outline: none;
+				color: #47D8BE;
+			}
+		}
+	}
+	.trending-flow{
+		text-align: center;
+		display: flex;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 30px;
+		span{
+			background: #1f1f49;
+			padding: 1px 10px;
+			margin: 0px 5px;
+			border-radius: 4px;
+			cursor: pointer;
+			&:hover{
+				background: $blue-burn-hover;
+			}
+		}
+	}
+}
+// Web App
+
 @media only screen and (max-width: 844px) {
+	.help-center{
+		.help-block{
+			font-size: 24px;
+			label{
+				width: 60%;
+			}
+			span{
+				display: flex;
+				img{
+					position: relative;
+					justify-content: flex-end;
+				}
+			}
+		}
+	}
+	.pricing{
+		padding-top: 200px;
+		.plan{
+			margin-bottom: 40px;
+		}
+	}
+	.cstm-carousel-inner{
+		.carousel-control-next{
+			z-index: 3;
+			display: none;
+		}
+		.carousel-control-prev{
+			z-index: 3;
+			display: none;
+		}
+		&::after{
+			display: none;
+		}
+	}
+	.app-promo{
+		padding-top: 0px;
+	}
+	.feature{
+		padding: 50px  0px;
+		.cstm-indicators{
+			flex-direction: row;
+			left: 0px;
+			width: 100%;
+			height: 70px;
+			top: 65px;
+			border-radius: 0px;
+			gap: 0px;
+			button{
+				width: 45px;
+				height: 45px;
+				padding: 0px;
+				svg{
+					width: 32px;
+					height: 32px;
+				}
+				span{
+					display: none;
+				}
+				&:hover{
+					span{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	.sm-margin-phone{
+		margin-top: 100px;
+		img{
+			width: 300px;
+			margin: 0px auto;
+		}
+	}
+
+	#moon{
+		display: none;
+	}
+	.shape{
+		display: none;
+	}
 	.floating1,
 	.floating2 {
 		display: none;
