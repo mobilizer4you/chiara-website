@@ -1,8 +1,7 @@
-import { MutationLoginArgs, Resolvers } from "./../../generated/resolversTypes";
-import { PrismaClient } from "@prisma/client";
-import { login } from "../auth/auth";
-import { ApolloError } from "apollo-server-express";
-const prisma = new PrismaClient();
+import { ApolloError } from "apollo-server-core";
+import { getUserInformation, storeUserInformation } from "../auth/auth";
+import { Resolvers } from "../generated/resolversTypes";
+
 const books = [
   {
     title: "The Awakening",
@@ -19,17 +18,24 @@ export const resolvers: Resolvers = {
     books: () => {
       return books;
     },
+    getUserInformation: async (_, { userId }) => {
+      try {
+        const data = getUserInformation(userId);
+        return data;
+      } catch (error) {
+        console.error(error);
+        throw new ApolloError(error as any);
+      }
+    },
   },
   Mutation: {
-    login: async (_parent, args: MutationLoginArgs) => {
+    storeUserInformation: async (_, { storeUserInput }) => {
       try {
-        const {
-          loginRequest: { email, password },
-        } = args;
-        const response = await login({ email, password });
-        return response;
+        const data = await storeUserInformation(storeUserInput);
+        return data;
       } catch (error) {
-        throw new ApolloError(error);
+        console.error(error);
+        throw new ApolloError(error as any);
       }
     },
   },

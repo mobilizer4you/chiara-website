@@ -1,111 +1,59 @@
-import { LoginRequest, LoginResponse } from "./../../generated/resolversTypes";
-import { PrismaClient, User } from "@prisma/client";
-import * as bcrypt from "bcrypt";
-import cuid from "cuid";
-import * as jwt from "jsonwebtoken";
+import { GetUserInformationResponse } from "./../generated/resolversTypes";
+import { PrismaClient, User, AuthProvider } from "@prisma/client";
+import {
+  StoreUserInformationResponse,
+  StoreUserInput,
+} from "../generated/resolversTypes";
+import { prisma } from "../util";
 
-const SALT_ROUND = 10;
-
-const prisma = new PrismaClient();
-interface HandleExistingUser extends LoginRequest {
-  user: User;
-}
-
-const modifiedUser = (user: User) => {
-  const { emailVerified, ...rest } = user;
-  const newUser = { ...rest, emailVerified: String(emailVerified) };
-  return newUser;
-};
-
-const generateToken = (user: User) => {
-  const token = jwt.sign(
-    {
-      iat: Date.now(),
-      exp: Date.now() + 1000 * 60 * 60 * 24 * 7,
-    },
-    process.env.JWT_SECRET,
-    {
-      algorithm: "HS512",
-    }
-  );
-  return token;
-};
-
-const handleNewUser = async ({
+const storeUserInformation = async ({
+  username,
   email,
-  password,
-}: LoginRequest): Promise<LoginResponse> => {
-  const passwordHash: string = await bcrypt.hash(password, SALT_ROUND);
-  const accountId = cuid();
-  const userId = cuid();
-
+  id,
+  authProvider,
+}: StoreUserInput): Promise<StoreUserInformationResponse> => {
   const user = await prisma.user.create({
     data: {
-      id: userId,
-      passwordHash: passwordHash,
+      id,
+      username,
       email,
-      accounts: {
-        create: {
-          id: accountId,
-          type: "primary",
-          provider: "credentials",
-          providerAccountId: accountId,
-        },
-      },
-      sessions: {
-        create: {
-          id: cuid(),
-          sessionToken: cuid(),
-          expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
-        },
-      },
+      authProvider,
     },
   });
+  user.authProvider;
 
-  const response: LoginResponse = {
-    status: {
-      success: true,
-      message: "User created",
-    },
-    user: { ...modifiedUser(user) },
-    token: generateToken(user),
-  };
-
-  return response;
-};
-
-const handleExistingUser = ({
-  email,
-  password,
-  user,
-}: HandleExistingUser): LoginResponse => {
   return {
     status: {
       success: true,
-      message: "User found",
+      message: "Successfully stored user information",
     },
-    user: modifiedUser(user),
-    token: generateToken(user),
+    user,
   };
 };
 
-const login = async ({
-  email,
-  password,
-}: LoginRequest): Promise<LoginResponse> => {
+const getUserInformation = async (
+  userId: string
+): Promise<GetUserInformationResponse> => {
   const user = await prisma.user.findUnique({
     where: {
-      email,
+      id: userId,
     },
   });
-
-  if (user != null) {
-    const response = handleExistingUser({ email, password, user });
-    return response;
+  if (user == null) {
+    return {
+      status: {
+        success: false,
+        message: "User not found",
+      },
+    };
   }
-
-  const response = await handleNewUser({ email, password });
-  return response;
+  return {
+    status: {
+      success: true,
+      message: "Successfully retrieved user information",
+    },
+    user,
+  };
 };
 
-export { login };
+export { storeUserInformation, getUserInformation };

@@ -36,36 +36,25 @@ export type Scalars = {
   Float: number;
 };
 
-export type Account = {
-  __typename?: "Account";
-  access_token?: Maybe<Scalars["String"]>;
-  expires_at?: Maybe<Scalars["Int"]>;
-  id: Scalars["String"];
-  id_token?: Maybe<Scalars["String"]>;
-  provider: Scalars["String"];
-  providerAccountId: Scalars["String"];
-  refresh_token?: Maybe<Scalars["String"]>;
-  scope?: Maybe<Scalars["String"]>;
-  session_state?: Maybe<Scalars["String"]>;
-  token_type?: Maybe<Scalars["String"]>;
-  type: Scalars["String"];
-  user?: Maybe<User>;
-  userId: Scalars["String"];
-};
-
 export type Book = {
   __typename?: "Book";
   author?: Maybe<Scalars["String"]>;
   title?: Maybe<Scalars["String"]>;
 };
 
-export type Mutation = {
-  __typename?: "Mutation";
-  login: LoginResponse;
+export type GetUserInformationResponse = {
+  __typename?: "GetUserInformationResponse";
+  status: MutationResponse;
+  user?: Maybe<User>;
 };
 
-export type MutationLoginArgs = {
-  loginRequest: LoginRequest;
+export type Mutation = {
+  __typename?: "Mutation";
+  storeUserInformation: StoreUserInformationResponse;
+};
+
+export type MutationStoreUserInformationArgs = {
+  storeUserInput: StoreUserInput;
 };
 
 export type MutationResponse = {
@@ -77,38 +66,30 @@ export type MutationResponse = {
 export type Query = {
   __typename?: "Query";
   books?: Maybe<Array<Maybe<Book>>>;
+  getUserInformation: GetUserInformationResponse;
 };
 
-export type Session = {
-  __typename?: "Session";
-  expires: Scalars["String"];
-  id: Scalars["String"];
-  sessionToken: Scalars["String"];
-  user: User;
+export type QueryGetUserInformationArgs = {
   userId: Scalars["String"];
+};
+
+export type StoreUserInformationResponse = {
+  __typename?: "StoreUserInformationResponse";
+  status: MutationResponse;
+  user: User;
+};
+
+export type StoreUserInput = {
+  email: Scalars["String"];
+  id: Scalars["String"];
+  username: Scalars["String"];
 };
 
 export type User = {
   __typename?: "User";
-  accounts?: Maybe<Array<Maybe<Account>>>;
-  email?: Maybe<Scalars["String"]>;
-  emailVerified?: Maybe<Scalars["String"]>;
-  id: Scalars["String"];
-  image?: Maybe<Scalars["String"]>;
-  name?: Maybe<Scalars["String"]>;
-  sessions?: Maybe<Array<Maybe<Session>>>;
-};
-
-export type LoginRequest = {
   email: Scalars["String"];
-  password: Scalars["String"];
-};
-
-export type LoginResponse = {
-  __typename?: "loginResponse";
-  status: MutationResponse;
-  token: Scalars["String"];
-  user?: Maybe<User>;
+  id: Scalars["String"];
+  username: Scalars["String"];
 };
 
 export type GetBooksQueryQueryVariables = Exact<{ [key: string]: never }>;
@@ -122,28 +103,42 @@ export type GetBooksQueryQuery = {
   } | null> | null;
 };
 
-export type LoginMutationVariables = Exact<{
-  input: LoginRequest;
+export type GetUserInformationQueryVariables = Exact<{
+  input: Scalars["String"];
 }>;
 
-export type LoginMutation = {
+export type GetUserInformationQuery = {
+  __typename?: "Query";
+  getUserInformation: {
+    __typename?: "GetUserInformationResponse";
+    status: {
+      __typename?: "MutationResponse";
+      message: string;
+      success: boolean;
+    };
+    user?: {
+      __typename?: "User";
+      id: string;
+      username: string;
+      email: string;
+    } | null;
+  };
+};
+
+export type StoreUserInformationMutationVariables = Exact<{
+  storeUserInput: StoreUserInput;
+}>;
+
+export type StoreUserInformationMutation = {
   __typename?: "Mutation";
-  login: {
-    __typename?: "loginResponse";
-    token: string;
+  storeUserInformation: {
+    __typename?: "StoreUserInformationResponse";
     status: {
       __typename?: "MutationResponse";
       success: boolean;
       message: string;
     };
-    user?: {
-      __typename?: "User";
-      id: string;
-      name?: string | null;
-      email?: string | null;
-      emailVerified?: string | null;
-      image?: string | null;
-    } | null;
+    user: { __typename?: "User"; id: string; username: string; email: string };
   };
 };
 
@@ -177,43 +172,84 @@ export const useGetBooksQueryQuery = <
 
 useGetBooksQueryQuery.getKey = (variables?: GetBooksQueryQueryVariables) =>
   variables === undefined ? ["getBooksQuery"] : ["getBooksQuery", variables];
-export const LoginDocument = `
-    mutation login($input: loginRequest!) {
-  login(loginRequest: $input) {
+export const GetUserInformationDocument = `
+    query getUserInformation($input: String!) {
+  getUserInformation(userId: $input) {
     status {
-      success
       message
+      success
     }
-    token
     user {
       id
-      name
+      username
       email
-      emailVerified
-      image
     }
   }
 }
     `;
-export const useLoginMutation = <TError = unknown, TContext = unknown>(
+export const useGetUserInformationQuery = <
+  TData = GetUserInformationQuery,
+  TError = unknown
+>(
+  client: GraphQLClient,
+  variables: GetUserInformationQueryVariables,
+  options?: UseQueryOptions<GetUserInformationQuery, TError, TData>,
+  headers?: RequestInit["headers"]
+) =>
+  useQuery<GetUserInformationQuery, TError, TData>(
+    ["getUserInformation", variables],
+    fetcher<GetUserInformationQuery, GetUserInformationQueryVariables>(
+      client,
+      GetUserInformationDocument,
+      variables,
+      headers
+    ),
+    options
+  );
+
+useGetUserInformationQuery.getKey = (
+  variables: GetUserInformationQueryVariables
+) => ["getUserInformation", variables];
+export const StoreUserInformationDocument = `
+    mutation storeUserInformation($storeUserInput: StoreUserInput!) {
+  storeUserInformation(storeUserInput: $storeUserInput) {
+    status {
+      success
+      message
+    }
+    user {
+      id
+      username
+      email
+    }
+  }
+}
+    `;
+export const useStoreUserInformationMutation = <
+  TError = unknown,
+  TContext = unknown
+>(
   client: GraphQLClient,
   options?: UseMutationOptions<
-    LoginMutation,
+    StoreUserInformationMutation,
     TError,
-    LoginMutationVariables,
+    StoreUserInformationMutationVariables,
     TContext
   >,
   headers?: RequestInit["headers"]
 ) =>
-  useMutation<LoginMutation, TError, LoginMutationVariables, TContext>(
-    ["login"],
-    (variables?: LoginMutationVariables) =>
-      fetcher<LoginMutation, LoginMutationVariables>(
-        client,
-        LoginDocument,
-        variables,
-        headers
-      )(),
+  useMutation<
+    StoreUserInformationMutation,
+    TError,
+    StoreUserInformationMutationVariables,
+    TContext
+  >(
+    ["storeUserInformation"],
+    (variables?: StoreUserInformationMutationVariables) =>
+      fetcher<
+        StoreUserInformationMutation,
+        StoreUserInformationMutationVariables
+      >(client, StoreUserInformationDocument, variables, headers)(),
     options
   );
-useLoginMutation.getKey = () => ["login"];
+useStoreUserInformationMutation.getKey = () => ["storeUserInformation"];

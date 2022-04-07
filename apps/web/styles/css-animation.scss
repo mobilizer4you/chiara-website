@@ -1,0 +1,248 @@
+@keyframes move-twink-back {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: -10000px 5000px;
+	}
+}
+
+@-webkit-keyframes move-twink-back {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: -10000px 5000px;
+	}
+}
+@-moz-keyframes move-twink-back {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: -10000px 5000px;
+	}
+}
+@-ms-keyframes move-twink-back {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: -10000px 5000px;
+	}
+}
+
+@keyframes move-clouds-back {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 10000px 0;
+	}
+}
+
+@-webkit-keyframes move-clouds-back {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 10000px 0;
+	}
+}
+
+@-moz-keyframes move-clouds-back {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 10000px 0;
+	}
+}
+@-ms-keyframes move-clouds-back {
+	from {
+		background-position: 0;
+	}
+	to {
+		background-position: 10000px 0;
+	}
+}
+
+.stars,
+.twinkling,
+.clouds {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 0;
+}
+.clouds {
+	position: absolute;
+	z-index: 2;
+}
+
+.stars {
+	background: #050519 url(../public/images/stars.png) repeat top center;
+	z-index: 0;
+}
+
+.twinkling {
+	background: transparent url(../public/images/twinkling.png) repeat top center;
+	z-index: 1;
+
+	-moz-animation: move-twink-back 200s linear infinite;
+	-ms-animation: move-twink-back 200s linear infinite;
+	-o-animation: move-twink-back 200s linear infinite;
+	-webkit-animation: move-twink-back 200s linear infinite;
+	animation: move-twink-back 200s linear infinite;
+}
+
+.clouds {
+	background: transparent url(../public/images/clouds3.png) repeat-x top center;
+	z-index: 3;
+
+	-moz-animation: move-clouds-back 200s linear infinite;
+	-ms-animation: move-clouds-back 200s linear infinite;
+	-o-animation: move-clouds-back 200s linear infinite;
+	-webkit-animation: move-clouds-back 200s linear infinite;
+	animation: move-clouds-back 200s linear infinite;
+}
+
+/* Circle Animation */
+.animate-container {
+	position: relative;
+	height: 400px;
+	width: 100%;
+	overflow: visible;
+	z-index: 3;
+}
+.floating1 {
+	width: 1000px;
+	height: 1000px;
+	border-radius: 50%;
+	position: absolute;
+	z-index: 3;
+	left: -10%;
+	overflow: hidden;
+	top: 50px;
+	background: linear-gradient(
+		189.24deg,
+		rgba(15, 186, 223, 0.19) 21.32%,
+		rgba(71, 141, 222, 0) 96.14%
+	);
+	filter: blur(50px);
+
+	margin: 20px auto;
+	-webkit-animation: slide-bl 16s ease-in infinite alternate backwards;
+	animation: slide-bl 16s ease-in infinite alternate backwards;
+}
+.floating2 {
+	width: 400px;
+	height: 400px;
+	border-radius: 50%;
+	position: absolute;
+	z-index: 3;
+	left: -10%;
+	overflow: hidden;
+	top: 50px;
+
+	background: radial-gradient(
+		67.21% 67.21% at 50% 32.79%,
+		rgba(63, 73, 192, 0.81) 0%,
+		rgba(0, 0, 0, 0.81) 100%
+	);
+	filter: blur(50px);
+
+	margin: 20px auto;
+	-webkit-animation: slide-bl 16s ease-in infinite alternate backwards;
+	animation: slide-bl 16s ease-in infinite alternate backwards;
+}
+
+@-webkit-keyframes slide-bl {
+	0% {
+		-webkit-transform: translateY(0) translateX(0);
+		transform: translateY(0) translateX(0);
+	}
+	25% {
+		-webkit-transform: translateY(0) translateX(-25px);
+		transform: translateY(0) translateX(-25px);
+	}
+	100% {
+		-webkit-transform: translateY(-50px) translateX(50px);
+		transform: translateY(-50px) translateX(50px);
+	}
+}
+
+@keyframes slide-bl {
+	0% {
+		-webkit-transform: translateY(0) translateX(0);
+		transform: translateY(0) translateX(0);
+	}
+	25% {
+		-webkit-transform: translateY(0) translateX(-100px);
+		transform: translateY(0) translateX(-100px);
+	}
+	100% {
+		-webkit-transform: translateY(-150px) translateX(150px);
+		transform: translateY(-150px) translateX(150px);
+	}
+}
+/* Circle Animation */
+
+/* Circle Feature */
+.circle-animate {
+	background: rgba(67, 84, 230, 0.17);
+	height: 300px;
+	width: 300px;
+	border-radius: 50%;
+	position: relative;
+	box-shadow: -2px -9px 0px 63px #4e3aa930;
+	animation: translateSmooth 3s ease-in infinite alternate;
+}
+.circle-animate::after {
+	content: ' ';
+	position: absolute;
+	width: calc(100% + 70px);
+	height: calc(100% + 70px);
+	background: linear-gradient(180deg, rgba(63, 142, 215, 0.17) 0%, rgba(183, 165, 237, 0) 100%);
+	border-radius: 50%;
+	left: -40px;
+	top: -40px;
+	animation: translateBeforeSmooth 4s ease-in infinite alternate;
+}
+
+@keyframes translateSmooth {
+	0% {
+		-webkit-transform: translateY(0) translateX(0);
+		transform: translateY(0) translateX(0);
+	}
+	25% {
+		-webkit-transform: translateY(0) translateX(-20px);
+		transform: translateY(0) translateX(-20px);
+	}
+	100% {
+		-webkit-transform: translateY(-15px) translateX(15px);
+		transform: translateY(-15px) translateX(15px);
+	}
+}
+@keyframes translateBeforeSmooth {
+	0% {
+		-webkit-transform: translateY(-5) translateX(-5);
+		transform: translateY(-5) translateX(-5);
+	}
+	25% {
+		-webkit-transform: translateY(-5) translateX(-20px);
+		transform: translateY(-5) translateX(-20px);
+	}
+	100% {
+		-webkit-transform: translateY(-15px) translateX(15px);
+		transform: translateY(-15px) translateX(15px);
+	}
+}
+/* Circle Feature */
+
+/* Media */
