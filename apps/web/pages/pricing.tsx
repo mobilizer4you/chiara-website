@@ -13,6 +13,7 @@ const Pricing = () => {
         }}
       >
         <div className="container">
+          <div className="shape" id="moon"></div>
           <h1 className="big-title mb-5">Subscription Plans and Pricing</h1>
           <div className="col-md-8 col-xl-8 col-lg-8 mx-auto">
             <p className="text-center">

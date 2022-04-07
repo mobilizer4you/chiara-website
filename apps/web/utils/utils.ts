@@ -27,4 +27,5 @@ export const ROUTES = {
   FEATURES: "/features",
   HELP: "/help",
   PRICING: "/pricing",
+  APP_SEARCH: "/app/search",
 } as const;
