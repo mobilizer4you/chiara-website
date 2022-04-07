@@ -11,38 +11,23 @@ export const typeDefs = gql`
     author: String
   }
 
-  type Account {
-    id: String!
-    userId: String!
-    type: String!
-    provider: String!
-    providerAccountId: String!
-    refresh_token: String
-    access_token: String
-    expires_at: Int
-    token_type: String
-    scope: String
-    id_token: String
-    session_state: String
-    user: User
-  }
-
   type User {
     id: String!
-    name: String
-    email: String
-    emailVerified: String
-    image: String
-    accounts: [Account]
-    sessions: [Session]
+    username: String!
+    email: String!
+    authProvider: AuthProvider!
   }
 
-  type Session {
+  enum AuthProvider {
+    GOOGLE
+    EMAIL
+  }
+
+  input StoreUserInput {
     id: String!
-    sessionToken: String!
-    userId: String!
-    expires: String!
-    user: User!
+    username: String!
+    email: String!
+    authProvider: AuthProvider!
   }
 
   type MutationResponse {
@@ -50,15 +35,20 @@ export const typeDefs = gql`
     message: String!
   }
 
-  type loginResponse {
+  type StoreUserInformationResponse {
     status: MutationResponse!
-    user: User
-    token: String!
+    user: User!
   }
 
-  input loginRequest {
-    email: String!
-    password: String!
+  type GetUserInformationResponse {
+    status: MutationResponse!
+    user: User
+  }
+
+  type Mutation {
+    storeUserInformation(
+      storeUserInput: StoreUserInput!
+    ): StoreUserInformationResponse!
   }
 
   # The "Query" type is special: it lists all of the available queries that
@@ -66,9 +56,6 @@ export const typeDefs = gql`
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
     books: [Book]
-  }
-
-  type Mutation {
-    login(loginRequest: loginRequest!): loginResponse!
+    getUserInformation(userId: String!): GetUserInformationResponse!
   }
 `;

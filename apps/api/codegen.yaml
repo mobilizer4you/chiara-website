@@ -1,10 +1,11 @@
 overwrite: true
 schema: './src/graphql/typedef.ts'
 generates:
-  generated/resolversTypes.ts:
+  src/generated/resolversTypes.ts:
     plugins:
       - typescript
       - typescript-operations
       - typescript-resolvers
     config:
       useIndexSignature: true
+      enumsAsConst: true
