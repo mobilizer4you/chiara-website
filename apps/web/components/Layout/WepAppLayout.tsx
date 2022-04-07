@@ -1,17 +1,37 @@
 import React from "react";
-import WatchStar from "../../public/images/watch-star.svg";
-import VisuallyHidden from "../VisuallyHidden";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
 import Link from "next/link";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxPopover,
+  ComboboxList,
+  ComboboxOption,
+  ComboboxOptionText,
+} from "@reach/combobox";
+
+import WatchStar from "../../public/images/watch-star.svg";
+import VisuallyHidden from "../VisuallyHidden";
 import usePathActiveHook from "../../hooks/path-active-hook";
+import { useAuthUser } from "next-firebase-auth";
+import { clientLogout } from "../../utils/firebase";
+import { useRouter } from "next/router";
+import { ROUTES } from "../../utils/utils";
 type Props = {
   children: React.ReactNode;
 };
 
 const WebAppLayout = ({ children }: Props) => {
   const pathName = usePathActiveHook();
+  const authUser = useAuthUser();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    clientLogout();
+    router.push(ROUTES.HOME);
+  };
 
   return (
     <>
@@ -58,7 +78,9 @@ const WebAppLayout = ({ children }: Props) => {
                   Help Center
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.5">Logout</NavDropdown.Item>
+                <NavDropdown.Item as="button" onClick={handleLogout}>
+                  Logout
+                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
