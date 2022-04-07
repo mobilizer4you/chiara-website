@@ -1,17 +1,9 @@
-import Link from "next/link";
-import { Button } from "ui";
 import { useRouter } from "next/router";
 
 import { useGetBooksQueryQuery } from "../generated/graphql";
 import { loadClient } from "../utils/utils";
 import Script from "next/script";
-import MoonSvg from "../public/images/moon-bg.svg";
-import {
-  useAuthUser,
-  withAuthUser,
-  withAuthUserTokenSSR,
-} from "next-firebase-auth";
-import { clientLogout } from "../utils/firebase";
+import { useAuthUser } from "next-firebase-auth";
 
 import React from "react";
 import HomePageLayout from "../components/Layout/HomePageLayout";
@@ -27,7 +19,6 @@ const Web = () => {
       );
     },
   });
-  const { email, displayName } = useAuthUser();
   const router = useRouter();
   React.useEffect(() => {
     if (typeof window === "undefined") return;
@@ -271,9 +262,6 @@ const Web = () => {
 };
 
 // // Note that this is a higher-order function.
-// export const getServerSideProps = withAuthUserTokenSSR()();
-
-// export default withAuthUser()(Web);
 
 Web.getLayout = function getLayout(page: React.ReactElement) {
   return <HomePageLayout>{page}</HomePageLayout>;

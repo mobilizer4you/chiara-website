@@ -35,7 +35,7 @@ const SignIn = () => {
         email: data.email,
         password: data.password,
       });
-      router.push(ROUTES.HOME);
+      router.push(ROUTES.APP_SEARCH);
     } catch (error) {
       console.log("🚀 ~ file: sign-in.tsx ~ line 38 ~ onSubmit ~ error", error);
       if (error.code === "auth/email-already-in-use") {
