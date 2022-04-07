@@ -29,7 +29,7 @@ const MainAppSearch = () => {
   const handleSelect = (value: string) => {
     router.push(
       {
-        pathname: ROUTES.APP_SEARCH,
+        pathname: ROUTES.APP.SEARCH,
         query: {
           query: value,
         },

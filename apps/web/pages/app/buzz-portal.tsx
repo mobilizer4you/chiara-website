@@ -6,6 +6,7 @@ import WebAppLayout from "../../components/Layout/WepAppLayout";
 import { ROUTES } from "../../utils/utils";
 import Logo from "../../../web/public/images/logo.svg";
 import SearchIcon from "../../../web/public/images/icon-search.svg";
+import VisuallyHidden from "../../components/VisuallyHidden";
 
 const BuzzPortal = () => {
   return (
@@ -21,10 +22,10 @@ const BuzzPortal = () => {
             <h2>BUZZ PORTAL</h2>
             <div className="search-ticker-buzz col-md-7 col-xl-7 col-lg-7">
               <label htmlFor="">Enter name of the economic event</label>
-              <label htmlFor="search" className="input-container-lg">
-                <input id="search" type="text" />
+              <div className="input-container-lg">
+                <input id="search" type="text" title="search" />
                 <SearchIcon></SearchIcon>
-              </label>
+              </div>
             </div>
           </div>
           <div className="uni-container">
