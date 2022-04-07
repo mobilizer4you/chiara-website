@@ -877,6 +877,27 @@ footer {
 		}
 	}
 }
+.search__list{
+	background: #0A0A23;
+	padding: 0px;
+	margin: 0px;
+	li{
+		list-style: none;
+		position: relative;
+		padding: 10px 50px;
+		&::before{
+			content: " ";
+			position: absolute;
+			width: 26px;
+			height: 26px;
+			background: url(../public/images/growth.svg)no-repeat;
+			left: 10px;
+			top: 10px;
+			background-size: 24px 24px;
+			background-position: center;
+		}
+	}
+}
 // Web App
 
 @media only screen and (max-width: 844px) {
