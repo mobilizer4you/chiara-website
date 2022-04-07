@@ -21,10 +21,10 @@ const BuzzPortal = () => {
             <h2>BUZZ PORTAL</h2>
             <div className="search-ticker-buzz col-md-7 col-xl-7 col-lg-7">
               <label htmlFor="">Enter name of the economic event</label>
-              <div className="input-container-lg">
-                <input type="text" />
+              <label htmlFor="search" className="input-container-lg">
+                <input id="search" type="text" />
                 <SearchIcon></SearchIcon>
-              </div>
+              </label>
             </div>
           </div>
           <div className="uni-container">

@@ -671,6 +671,7 @@ footer {
 				color: #fff !important;
 				font-size: 20px !important;
 				font-weight: 600;
+				text-decoration: none;
 				&:hover {
 					color: #af9bff !important;
 				}
@@ -691,6 +692,10 @@ footer {
 		.dropdown-item{
 			&:hover{
 				background: #0b0b37;
+			}
+			&:focus {
+				background: #0b0b37;
+				color: #af9bff !important;
 			}
 		}
 	}
@@ -885,16 +890,21 @@ footer {
 		list-style: none;
 		position: relative;
 		padding: 10px 50px;
+		padding-left: 10px;
+		svg {
+			margin-right: 1rem;
+		}
 		&::before{
-			content: " ";
-			position: absolute;
-			width: 26px;
-			height: 26px;
-			background: url(../public/images/growth.svg) no-repeat;
-			left: 10px;
-			top: 10px;
-			background-size: 24px 24px;
-			background-position: center;
+			// content: " ";
+			// position: absolute;
+			// width: 26px;
+			// height: 26px;
+			// // background: url(../public/images/growth.svg) no-repeat;
+			// background: url(../public/images/moon-bg-image.png) no-repeat;
+			// left: 10px;
+			// top: 10px;
+			// background-size: 24px 24px;
+			// background-position: center;
 		}
 	}
 }
@@ -1103,4 +1113,15 @@ footer {
 		font-size: 2em;
 		padding: 0.2em 1em;
 	}
+}
+
+// search style
+
+[data-reach-combobox-option][aria-selected='true'] {
+	background: #0b0b37;
+	color: #af9bff;
+}
+[data-reach-combobox-option]:hover {
+	background: #0b0b37;
+	color: #af9bff;
 }

@@ -27,5 +27,16 @@ export const ROUTES = {
   FEATURES: "/features",
   HELP: "/help",
   PRICING: "/pricing",
-  APP_SEARCH: "/app/search",
+  APP: {
+    SEARCH: "/app/search",
+    BUZZ_PORTAL: "/app/buzz-portal",
+    ECONOMIC_INSIGHT: "/app/economic-insight",
+    FUNDAMENTAL_PORTAL: "/app/fundamental-portal",
+    NEWSLETTER: "/app/newsletter",
+    STRATEGY_DESIGNER: "/app/strategy-designer",
+    TECH_PREP: "/app/tech-prep",
+    USER: {
+      ACCOUNT: "/app/user/account",
+    },
+  },
 } as const;
