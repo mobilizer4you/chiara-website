@@ -1056,6 +1056,87 @@ footer {
 }
 // Buzz portal
 
+// Newsletter
+.newsletter-container {
+  position: relative;
+  z-index: 5;
+  font-family: "Source Sans Pro", sans-serif;
+  h2 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.news-disclaimer{
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #1d0f75;
+  padding: 16px;
+  border-radius: 5px;
+  background: #04083f;
+  align-items: center;
+  .icon-holder{
+    margin-right: 15px;
+  }
+  p{
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+}
+
+.card-news{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #191951;
+  padding-bottom: 80px;
+  flex-grow: 1;
+  position: relative;
+  margin-bottom: 30px;
+  .card-img{
+    height: 150px;
+    img{
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
+  .card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    h4{
+      font-family: "Source Sans Pro", sans-serif;
+      text-shadow: none;
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
+    a{
+      color: #A5A2E1;
+      background: #050519;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 7px 15px;
+    }
+    button{
+      position: absolute;
+      width: 90%;
+      height: 40px;
+      border: 0px;
+      color: #fff;
+      background: linear-gradient(96.9deg, #1C40BF 3.55%, #6956DF 100.58%);
+      border-radius: 10px;
+      bottom: 20px;
+    }
+  }
+}
+// Newsletter
+
 .uni-container {
   background: #09092a;
   min-height: 300px;
