@@ -19,6 +19,7 @@ import { useAuthUser } from "next-firebase-auth";
 import { clientLogout } from "../../utils/firebase";
 import { useRouter } from "next/router";
 import { ROUTES } from "../../utils/utils";
+import Image from "next/image";
 type Props = {
   children: React.ReactNode;
 };
@@ -43,7 +44,15 @@ const WebAppLayout = ({ children }: Props) => {
           <Link href="/" passHref>
             <a className="navbar-brand">
               <VisuallyHidden>Home</VisuallyHidden>
-              <img src="/images/logo.svg" alt="" />
+              <div className="img__wrapper">
+                <Image
+                  src="/images/logo.svg"
+                  layout="fixed"
+                  width={166}
+                  height={40}
+                  alt="Multicolor tikstock text and a wifi symbol "
+                />
+              </div>
             </a>
           </Link>
           <Navbar.Toggle
