@@ -1,6 +1,7 @@
 import React from "react";
 import WebAppLayout from "../../components/Layout/WepAppLayout";
-import NewsletterImage from "../../public/images/newsletter.svg";
+import StrategyCard from "../../components/StrategyCard";
+import StrategyTheme from "../../components/StrategyTheme";
 
 const StrategyDesigner = () => {
   return (
@@ -25,48 +26,20 @@ const StrategyDesigner = () => {
                   <div className="col-md-4 col-xl-4 col-lg-4">
                     <h4 className="mb-3">Explore</h4>
                     <div className="button-pack">
-                      <button className="btn-view-changer active">
+                      <button type="button" className="btn-view-changer active">
                         Themes
                       </button>
-                      <button className="btn-view-changer">
+                      <button type="button" className="btn-view-changer">
                         Preset Screens
                       </button>
                     </div>
                   </div>
                 </div>
                 <div className="row mt-4 d-flex">
-                  <div className="col-md-4 col-lg-4 col-xl-4">
-                    <img
-                      src="https://picsum.photos/358/200"
-                      className="img-fluid"
-                      alt=""
-                    />
-                    <p>5G</p>
-                  </div>
-                  <div className="col-md-4 col-lg-4 col-xl-4">
-                    <img
-                      src="https://picsum.photos/358/200"
-                      className="img-fluid"
-                      alt=""
-                    />
-                    <p>5G</p>
-                  </div>
-                  <div className="col-md-4 col-lg-4 col-xl-4">
-                    <img
-                      src="https://picsum.photos/358/200"
-                      className="img-fluid"
-                      alt=""
-                    />
-                    <p>5G</p>
-                  </div>
-                  <div className="col-md-4 col-lg-4 col-xl-4">
-                    <img
-                      src="https://picsum.photos/358/200"
-                      className="img-fluid"
-                      alt=""
-                    />
-                    <p>5G</p>
-                  </div>
+                  <StrategyTheme />
+                  <StrategyTheme />
+                  <StrategyTheme />
+                  <StrategyTheme />
                 </div>
               </div>
             </div>
@@ -75,28 +48,12 @@ const StrategyDesigner = () => {
               <div className="filter-block">
                 <div className="form-group">
                   <label className="from-label">Sort By</label>
-                  <input type="text" className="form-control" />
+                  <input type="text" className="form-control" title="Sort By" />
                 </div>
               </div>
               <div className="row d-flex">
-                <div className="col-md-6 col-lg-6 col-xl-6">
-                  <div className="strategy-card">
-                    <h5>Small Cap Price Trenders with Substancial</h5>
-                    <label htmlFor="">Matches</label>
-                    <strong className="value">7</strong>
-                    <label htmlFor="">Annualized Return</label>
-                    <strong className="value positive">34.7%</strong>
-                  </div>
-                </div>
-                <div className="col-md-6 col-lg-6 col-xl-6">
-                  <div className="strategy-card">
-                    <h5>Small Cap Price Trenders with Substancial</h5>
-                    <label htmlFor="">Matches</label>
-                    <strong className="value">7</strong>
-                    <label htmlFor="">Annualized Return</label>
-                    <strong className="value negetive">-12.3%</strong>
-                  </div>
-                </div>
+                <StrategyCard type="positive" />
+                <StrategyCard type="negative" />
               </div>
             </div>
           </div>
