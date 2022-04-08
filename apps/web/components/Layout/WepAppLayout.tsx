@@ -43,7 +43,7 @@ const WebAppLayout = ({ children }: Props) => {
           <Link href="/" passHref>
             <a className="navbar-brand">
               <VisuallyHidden>Home</VisuallyHidden>
-              <img src="./images/logo.svg" alt="" />
+              <img src="/images/logo.svg" alt="" />
             </a>
           </Link>
           <Navbar.Toggle
