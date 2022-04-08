@@ -1025,6 +1025,12 @@ footer {
     border-color: #212445;
     color: #fff;
   }
+  input{
+    background: #0f0f24;
+    border-color: #212445;
+    color: #fff;
+    margin-top: 10px;
+  }
 }
 
 .table-cstm {
@@ -1144,6 +1150,59 @@ footer {
   }
 }
 // Newsletter
+
+// Strategy Designer
+.strategy-container {
+  position: relative;
+  z-index: 5;
+  font-family: "Source Sans Pro", sans-serif;
+  h2 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  p.sub-head{
+    font-size: 22px;
+  }
+  h4{
+    font-family: "Source Sans Pro", sans-serif;
+    text-transform: uppercase;
+  }
+}
+.strategy-card{
+  min-height: 100px;
+  background: #09092A;
+  border-radius: 5px;
+  padding: 16px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 100px;
+  &:hover{
+    background: #1E1E5E;
+  }
+  h5{
+    font-size: 22px;
+    font-family: "Source Sans Pro", sans-serif;
+    margin-bottom: 30px;
+  }
+  label{
+    color: #8083A6;
+    font-size: 14px;
+  }
+  .value{
+    font-size: 24px;
+    margin-bottom: 20px;
+    &.positive{
+      color: #46fc6e;
+    }
+    &.negetive{
+      color: #FD2F2F;
+    }
+  }
+}
+// Strategy Designer
 
 .uni-container {
   background: #09092a;
