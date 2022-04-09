@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Link from "next/link";
 import usePathActiveHook from "../../hooks/path-active-hook";
+import Image from "next/image";
 type Props = {
   children: React.ReactNode;
 };
@@ -21,7 +22,15 @@ const HomePageLayout = ({ children }: Props) => {
           <Link href="/" passHref>
             <a className="navbar-brand">
               <VisuallyHidden>Home</VisuallyHidden>
-              <img src="./images/logo.svg" alt="" />
+              <div className="img__wrapper">
+                <Image
+                  src="/images/logo.svg"
+                  layout="fixed"
+                  width={166}
+                  height={40}
+                  alt="Multicolor tikstock text and a wifi symbol "
+                />
+              </div>
             </a>
           </Link>
           <Navbar.Toggle

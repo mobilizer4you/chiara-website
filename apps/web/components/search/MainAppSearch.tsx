@@ -4,10 +4,12 @@ import {
   ComboboxPopover,
   ComboboxList,
   ComboboxOption,
+  ComboboxOptionText,
 } from "@reach/combobox";
 import { useRouter } from "next/router";
 import React from "react";
 import SearchIcon from "../../../web/public/images/icon-search.svg";
+import GrowthIcon from "../../../web/public/images/growth.svg";
 import { ROUTES } from "../../utils/utils";
 
 const MainAppSearch = () => {
@@ -27,7 +29,7 @@ const MainAppSearch = () => {
   const handleSelect = (value: string) => {
     router.push(
       {
-        pathname: ROUTES.APP_SEARCH,
+        pathname: ROUTES.APP.SEARCH,
         query: {
           query: value,
         },
@@ -56,8 +58,14 @@ const MainAppSearch = () => {
       </div>
       <ComboboxPopover className="search__popover" portal={false}>
         <ComboboxList className="search__list">
-          <ComboboxOption className="search__item" value="Apple" />
-          <ComboboxOption className="search__item" value="Banana" />
+          <ComboboxOption className="search__item" value="Apple">
+            <GrowthIcon />
+            <ComboboxOptionText />
+          </ComboboxOption>
+          <ComboboxOption className="search__item" value="Banana">
+            <GrowthIcon />
+            <ComboboxOptionText />
+          </ComboboxOption>
         </ComboboxList>
       </ComboboxPopover>
     </Combobox>
