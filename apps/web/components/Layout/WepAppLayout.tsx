@@ -3,6 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
 import Link from "next/link";
+import Modal from "../../components/Modal";
 import {
   Combobox,
   ComboboxInput,
@@ -20,11 +21,13 @@ import { clientLogout } from "../../utils/firebase";
 import { useRouter } from "next/router";
 import { ROUTES } from "../../utils/utils";
 import Image from "next/image";
+import LogoutModal from "../LogoutModal/LogoutModal";
 type Props = {
   children: React.ReactNode;
 };
 
 const WebAppLayout = ({ children }: Props) => {
+  const [showDialog, setShowDialog] = React.useState(false);
   const pathName = usePathActiveHook();
   const authUser = useAuthUser();
   const router = useRouter();
@@ -89,9 +92,23 @@ const WebAppLayout = ({ children }: Props) => {
                   Help Center
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item as="button" onClick={handleLogout}>
+                {/* <NavDropdown.Item as="button" onClick={handleLogout}>
+                  Logout
+                </NavDropdown.Item> */}
+                <NavDropdown.Item
+                  as="button"
+                  onClick={() => setShowDialog(true)}
+                >
                   Logout
                 </NavDropdown.Item>
+                <Modal
+                  overLayClass="test"
+                  bodyClass="test__body"
+                  isDialogOpen={showDialog}
+                  setDialogOpen={setShowDialog}
+                >
+                  <LogoutModal setShowDialog={setShowDialog} />
+                </Modal>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

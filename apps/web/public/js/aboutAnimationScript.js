@@ -36,6 +36,7 @@ console.log(controller)
   }
 
   var firstAnimation = TweenMax.to("#moon", 1, {
+    className: "shape screen-america",
     left: animPosition1.left -200,
     top: animPosition1.top,
     width: animPosition1.width,
@@ -43,6 +44,7 @@ console.log(controller)
   });
 
   var secondAnimation = TweenMax.to("#moon", 1, {
+    className: "shape",
     left: animPosition2.left - 200,
     top: animPosition2.top  - 100,
     width: animPosition2.width,
@@ -50,6 +52,7 @@ console.log(controller)
   });
 
   var thirdAnimation = TweenMax.to("#moon", 1, {
+    className: "shape",
     left: animPosition3.left -200,
     top: animPosition3.top -100,
     width: animPosition3.width,
@@ -57,6 +60,7 @@ console.log(controller)
   });
 
   var fourthAnimation = TweenMax.to("#moon", 1, {
+    className: "shape",
     left: animPosition4.left,
     top: animPosition4.top - 100,
     width: animPosition4.width,
@@ -64,6 +68,7 @@ console.log(controller)
   });
 
   var fifthAnimation = TweenMax.to("#moon", 1, {
+    className: "shape",
     left: animPosition5.left,
     top: animPosition5.top,
     width: animPosition5.height ,
