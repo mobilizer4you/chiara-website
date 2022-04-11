@@ -1336,6 +1336,61 @@ footer {
 }
 
 // Economic Insight
+
+// Modal
+.modal-full-area{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #050519ad;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .modal-box{
+    width: 30%;
+    min-height: 250px;
+    padding: 30px;
+    background: #050519;
+    border-radius: 10px;
+    border: 2px solid #141466;
+    position: relative;
+    .close{
+      background: transparent;
+      border: 0px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+    h4{
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+    .action-button-modal{
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      button{
+        width: 100px;
+        height: 35px;
+        border: 0px;
+        border-radius: 4px;
+        color: #fff;
+        &.no{
+          background: #363d9c;
+        }
+        &.yes{
+          background: #202560;
+        }
+      }
+    }
+  }
+}
+// Modal
 // Web App
 
 @media only screen and (max-width: 844px) {
