@@ -22,7 +22,7 @@ const Modal = ({ isDialogOpen, setDialogOpen, children }: Props) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onDismiss={handleDismiss}
-          className={styles.modal__overlay}
+          className={`${styles.modal__overlay} modal-full-area`}
         >
           <MotionDialogContent
             initial={{ x: "100%" }}
