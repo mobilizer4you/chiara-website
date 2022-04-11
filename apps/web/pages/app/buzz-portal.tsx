@@ -11,8 +11,10 @@ import TableIcon from "../../../web/public/svg/table.svg";
 import BubbleIcon from "../../../web/public/svg/bubble.svg";
 import VisuallyHidden from "../../components/VisuallyHidden";
 import BuzzPortalTable from "../../components/BuzzPortalTable";
+import Modal from "../../components/Modal";
 
 const BuzzPortal = () => {
+  const [showDialog, setShowDialog] = React.useState(false);
   return (
     <>
       <header className="webapp-header">
@@ -112,6 +114,26 @@ const BuzzPortal = () => {
             </Tabs>
           </div>
         </div>
+        <button type="button" onClick={() => setShowDialog(true)}>
+          SHOW MODAL
+        </button>
+        <Modal isDialogOpen={showDialog} setDialogOpen={setShowDialog}>
+          <div
+            style={{
+              position: "relative",
+              top: "50%",
+              left: "50%",
+            }}
+          >
+            <button type="button" onClick={() => setShowDialog(false)}>
+              Close Dialog
+            </button>
+            <h2 id="dialog-title">Animated Dialog</h2>
+            <p>Framer motion makes it too easy!</p>
+
+            <button>Ayyyyyy</button>
+          </div>
+        </Modal>
       </section>
     </>
   );
