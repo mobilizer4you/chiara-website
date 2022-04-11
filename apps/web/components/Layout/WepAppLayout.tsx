@@ -101,7 +101,12 @@ const WebAppLayout = ({ children }: Props) => {
                 >
                   Logout
                 </NavDropdown.Item>
-                <Modal isDialogOpen={showDialog} setDialogOpen={setShowDialog}>
+                <Modal
+                  overLayClass="test"
+                  bodyClass="test__body"
+                  isDialogOpen={showDialog}
+                  setDialogOpen={setShowDialog}
+                >
                   <LogoutModal setShowDialog={setShowDialog} />
                 </Modal>
               </NavDropdown>
