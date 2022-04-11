@@ -39,7 +39,7 @@ const About = () => {
       ></Script>
       <header>
         <div className="container">
-          <div className="shape" id="moon"></div>
+          <div className="shape shape-new" id="moon"></div>
           <h1 className="big-title mb-5">Welcome</h1>
           <div className="col-md-8 col-xl-8 col-lg-8 mx-auto">
             <p className="text-center">
@@ -80,7 +80,7 @@ const About = () => {
                     }}
                     id="anim-position-1"
                   ></div>
-                  <h3>American Owned.</h3>
+                  <h3 className="about-heading">American Owned.</h3>
                   <p>
                     TikStock is a proud, American owned company founded with the
                     intention to provide stock information to traders and
@@ -99,7 +99,7 @@ const About = () => {
                     }}
                     id="anim-position-2"
                   ></div>
-                  <h3>
+                  <h3 className="about-heading">
                     We are traders Just <br /> Like you
                   </h3>
                   <p>
@@ -124,7 +124,7 @@ const About = () => {
                     }}
                     id="anim-position-3"
                   ></div>
-                  <h3>TikStock&apos;s Creation.</h3>
+                  <h3 className="about-heading">TikStock&apos;s Creation.</h3>
                   <p>
                     That&apos;s when we decided to take matters into our own
                     hands and create one for you. Our mission here at TikStock
@@ -147,7 +147,7 @@ const About = () => {
                     }}
                     id="anim-position-4"
                   ></div>
-                  <h3>Let us know</h3>
+                  <h3 className="about-heading">Let us know</h3>
                   <p>
                     So, if for some reason we have failed at doing this, fill
                     out the contact form found at the Help Center and let us
