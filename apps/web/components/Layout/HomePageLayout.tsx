@@ -115,7 +115,6 @@ const HomePageLayout = ({ children }: Props) => {
       <div className="clouds"></div>
 
       {children}
-
       <footer className="text-center">
         <div className="container">
           <h1>Subscribe to join</h1>
