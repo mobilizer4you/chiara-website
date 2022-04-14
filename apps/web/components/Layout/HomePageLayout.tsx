@@ -117,11 +117,11 @@ const HomePageLayout = ({ children }: Props) => {
       {children}
       <footer className="text-center">
         <div className="container">
-          <h1>Subscribe to join</h1>
+          {/* <h1>Subscribe to join</h1>
           <p>
             Our global community is taking shape. Sign up now to join the
             movement to create more livable cities.
-          </p>
+          </p> */}
           <button className="btn-theme subscribe">Subscribe</button>
         </div>
       </footer>

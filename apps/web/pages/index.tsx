@@ -70,7 +70,7 @@ const Web = () => {
             By People like you.
           </h1>
           <p className="sub-title">
-            We&apos;re kind of like the cheat sheet you hid from teachers…{" "}
+            We&apos;re kind of like the cheat sheet you hide from teachers…{" "}
             <br />
             but for trading.
           </p>
@@ -98,7 +98,7 @@ const Web = () => {
                 <p>
                   TikStock was created to take the confusion out of trading. To
                   deliver insightful market information to traders and investors
-                  in
+                  in creative ways that anyone can understand.
                 </p>
                 <button className="btn-theme center">
                   Get Started
@@ -141,10 +141,10 @@ const Web = () => {
                   at any skill level
                 </h3>
                 <p>
-                  Learning how to read a stocks chart, or getting help
-                  determining your ideal stop-loss doesn’t have to be
-                  expensive.Unlike most investment platforms out there, we know
-                  that you work hard for your money and refuse to disrespect
+                  Learning how to read stock charts, or getting help determining
+                  your ideal stop-loss doesn’t have to be expensive. Unlike most
+                  investment platforms out there, we know that you work hard for
+                  your money and refuse to disrespect that.
                 </p>
                 <button className="btn-theme center">
                   TRY IT FOR FREE
@@ -170,13 +170,12 @@ const Web = () => {
             <div className="col-xl-6 col-md-6 col-lg-6 col-sm-12">
               <div className="content-2-right text-center">
                 <h3>
-                  Top market analytics from <br /> worlds fintech Leaders
+                  Top market analytics from <br /> world&apos;s fintech Leaders
                 </h3>
                 <p>
-                  Learning how to read a stocks chart, or getting help
-                  determining your ideal stop-loss doesn’t have to be
-                  expensive.Unlike most investment platforms out there, we know
-                  that you work hard for your money and refuse to disrespect
+                  That sounds complicated, but all it means is that we take data
+                  from really smart people who know their stuff about the market
+                  (the class nerds), and bring it to you!
                 </p>
                 <button className="btn-theme center">
                   Get Started
