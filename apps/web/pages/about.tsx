@@ -41,7 +41,7 @@ const About = () => {
         <div className="container">
           <div className="shape shape-new" id="moon"></div>
           <h1 className="big-title mb-5">Welcome</h1>
-          <div className="col-md-8 col-xl-8 col-lg-8 mx-auto">
+          <div className="col-md-8 col-xl-8 col-lg-8 mx-auto about-intro">
             <p className="text-center">
               TikStock&apos;s story began during lockdown, when the green
               portfolios of successful traders started turning red. Now unsure
@@ -69,7 +69,7 @@ const About = () => {
       <section className="about">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 col-lg-8 col-xl-8 col-sm-12 mx-auto">
+            <div className="col-md-8 col-lg-8 col-xl-8 col-sm-12 mx-auto about-intro">
               <div className="row">
                 <div className="col-md-6 col-lg-6 col-xl-6 col-sm-6 text-center height-adjust">
                   <div
@@ -100,15 +100,15 @@ const About = () => {
                     id="anim-position-2"
                   ></div>
                   <h3 className="about-heading">
-                    We are traders Just <br /> Like you
+                    We are traders Just <br /> Like you!
                   </h3>
                   <p>
                     As traders ourselves who studied books, watched videos and
                     took expensive online courses in attempts to learn the
-                    secrets to market conquering, we took to the interne to find
-                    an affordable and comprehensive alternative. A platform
-                    where beginners can go to dive deep without feeling
-                    overwhelmed. We failed.
+                    secrets to market conquering, we took to the internet to
+                    find an affordable and comprehensive alternative. A platform
+                    where traders can dive deep into a stock&apos;s health
+                    without feeling overwhelmed. We failed.
                   </p>
                 </div>
               </div>
@@ -158,7 +158,8 @@ const About = () => {
               </div>
               <div className="row" id="anim-position-5">
                 <h1 className="text-center mt-5 mb-5">
-                  Thank you for your support
+                  {/* Thank you for your support */}
+                  <button>Subscribe</button>
                 </h1>
               </div>
             </div>
