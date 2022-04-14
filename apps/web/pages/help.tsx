@@ -168,14 +168,9 @@ const Help = () => {
                     data-bs-parent="#accordionExample"
                   >
                     <div className="accordion-body">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer eleifend eros pharetra mollis tristique. Sed
-                      egestas convallis tincidunt. Duis id rutrum dui. Nulla nec
-                      justo sed lacus accumsan euismod. Sed vestibulum dignissim
-                      convallis. Donec et egestas ante. Mauris nec orci ut nunc
-                      elementum hendrerit suscipit vel ante. In quis tortor quis
-                      odio bibendum placerat id et tortor. Praesent eu elit
-                      lorem. Quisque ipsum ante
+                      Absolutely not. No matter which plan you choose, we want
+                      to make sure you enjoy your TikStock experience and stay
+                      distraction-free.
                     </div>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -189,13 +184,98 @@ const Help = () => {
                     data-bs-parent="#accordionExample"
                   >
                     <div className="accordion-body">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer eleifend eros pharetra mollis tristique. Sed
-                      egestas convallis tincidunt. Duis id rutrum dui. Nulla nec
-                      justo sed lacus accumsan euismod. Sed vestibulum dignissim
-                      convallis. Donec et egestas ante. Mauris nec orci ut nunc
-                      elementum hendrerit suscipit vel ante. In quis tortor quis
-                      odio bibendum placerat id et tortor.
+                      Yes. Whether you paid monthly or yearly, if you decide to
+                      cancel your subscription you will continue to have access
+                      to TikStock for the remaining length of contracted time.
+                      Please note that your subscription will automatically
+                      renew at the beginning of each billing cycle.
+                    </div>
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="3">
+                  <Accordion.Header id="headingThree">
+                    What devices can TikStock be accessed on?
+                  </Accordion.Header>
+                  <Accordion.Body
+                    id="collapseThree"
+                    aria-labelledby="headingThree"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div className="accordion-body">
+                      TikStock is available on desktop web, mobile app and
+                      mobile web.
+                    </div>
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="4">
+                  <Accordion.Header id="headingFour">
+                    Can I trade through TikStock?
+                  </Accordion.Header>
+                  <Accordion.Body
+                    id="collapseFour"
+                    aria-labelledby="headingFour"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div className="accordion-body">
+                      Trading on TikStock is something we plan on growing into,
+                      but for now you will find a “TRADE” button at the top
+                      right corner of each page. When clicked on, you will be
+                      automatically directed to your brokerage firm&apos;s trade
+                      page.
+                    </div>
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="5">
+                  <Accordion.Header id="headingFive">
+                    I don’t know much about trading, but I want to learn more.
+                    Is TikStock the platform for me?
+                  </Accordion.Header>
+                  <Accordion.Body
+                    id="collapseFive"
+                    aria-labelledby="headingFive"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div className="accordion-body">
+                      Yes! TikStock was made with users like you in mind. Some
+                      of our favorite beginner features include educational
+                      videos on how to read stock charts (technical analysis),
+                      quizzes and detailed explanations of candlestick
+                      formations.
+                    </div>
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="6">
+                  <Accordion.Header id="headingSix">
+                    I’m an advanced trader. Is TikStock for me?
+                  </Accordion.Header>
+                  <Accordion.Body
+                    id="collapseSix"
+                    aria-labelledby="headingSix"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div className="accordion-body">
+                      Also, yes! We’d like to think of ourselves as any traders
+                      go-to support system before they make their trading or
+                      investment decisions. Download backtested strategies, stay
+                      in tune with macroeconomic data by examining historical
+                      graphs and access personalized investment ideas.
+                    </div>
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="7">
+                  <Accordion.Header id="headingSeven">
+                    Is there a live chat room for users to share ideas?
+                  </Accordion.Header>
+                  <Accordion.Body
+                    id="collapseSeven"
+                    aria-labelledby="headingSeven"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div className="accordion-body">
+                      No. At TikStock, we feel as though it is easy to be
+                      emotionally influenced to exit or enter a position because
+                      of people who don’t know what they’re doing. Long-term
+                      success is not acquired by involving crowds.
                     </div>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -204,7 +284,7 @@ const Help = () => {
           </div>
           <div className="row contact-block">
             <div className="col-md-8 col-lg-8 col-xl-8 mx-auto">
-              <h3 className="text-center">
+              <h3 className="text-center" style={{ lineHeight: "40px" }}>
                 Can&apos;t find the answer to your question?
                 <br />
                 Fill out the contact form below and we&apos;ll get <br />
