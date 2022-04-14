@@ -220,7 +220,7 @@ const Help = () => {
                       Trading on TikStock is something we plan on growing into,
                       but for now you will find a “TRADE” button at the top
                       right corner of each page. When clicked on, you will be
-                      automatically directed to your brokerage firm's trade
+                      automatically directed to your brokerage firm&apos;s trade
                       page.
                     </div>
                   </Accordion.Body>
