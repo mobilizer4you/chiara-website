@@ -65,7 +65,7 @@ const Features = () => {
                   onClick={() => goToSlide(0)}
                 >
                   <ChartAnalyzerSvg />
-                  <span>Chart Analyzer</span>
+                  <span>Chart Scanner</span>
                 </button>
                 <button
                   type="button"
@@ -74,7 +74,7 @@ const Features = () => {
                   onClick={() => goToSlide(1)}
                 >
                   <EducationOnDemandSvg />
-                  <span>Education-on-demand</span>
+                  <span>Tech Prep</span>
                 </button>
                 <button
                   type="button"
@@ -94,7 +94,7 @@ const Features = () => {
                   onClick={() => goToSlide(3)}
                 >
                   <StrategyBuilderSvg />
-                  <span>Strategy Builder</span>
+                  <span>Strategy Designer</span>
                 </button>
                 <button
                   type="button"
@@ -114,7 +114,7 @@ const Features = () => {
                   onClick={() => goToSlide(5)}
                 >
                   <NewsletterSvg />
-                  <span>Newsletter</span>
+                  <span>Newsbites</span>
                 </button>
                 <button
                   type="button"
@@ -124,7 +124,7 @@ const Features = () => {
                   onClick={() => goToSlide(6)}
                 >
                   <TailoredIdeaSvg />
-                  <span>Tailored Ideas</span>
+                  <span>Customized Trades</span>
                 </button>
                 <button
                   type="button"
@@ -134,7 +134,7 @@ const Features = () => {
                   onClick={() => goToSlide(7)}
                 >
                   <FundamentalInsightSvg />
-                  <span>Fundamental Analyzer</span>
+                  <span>Fundamental Portal</span>
                 </button>
               </div>
               <Carousel
@@ -154,13 +154,12 @@ const Features = () => {
                     />
                   </div>
                   <Carousel.Caption className=" d-none d-md-block cstm-caption">
-                    <h3 className="mb-3">Chart Analyzer</h3>
+                    <h3 className="mb-3">Chart Scanner</h3>
                     <p>
-                      Learn the science of technical analysis with our
-                      insightful chart breakdowns and explanations. We&apos;ll
-                      help you understand candlestick patterns, find support and
-                      resistance, set your price stop and even set alerts to
-                      keep you updated on your favorite stocks&apos; movement.
+                      A simple click of a button on any chart and we’ll explain
+                      real-time candlestick patterns, find support and
+                      resistance, set your ideal stop price and alert you to
+                      keep you updated on your favorite stocks’ movement.
                     </p>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -171,9 +170,10 @@ const Features = () => {
                     alt="..."
                   />
                   <Carousel.Caption className=" d-none d-md-block cstm-caption">
-                    <h3 className="mb-3">Education-on-demand</h3>
+                    <h3 className="mb-3">Tech-Prep</h3>
                     <p>
-                      Learn about technical analysis from world renowned market
+                      Don’t know much about reading charts? No problem. Learn
+                      about technical analysis from world renowned market
                       technician, Martin Pring, and quiz yourself on your
                       knowledge.
                     </p>
@@ -189,12 +189,11 @@ const Features = () => {
                     <h3 className="mb-3">Buzz Portal</h3>
                     <p>
                       We hate following the crowd here at TikStock, but when it
-                      comes to trading it is necessary to know which stocks have
-                      the best gossip. Buzz Portal will sort through the
+                      comes to trading it is necessary to know which stocks
+                      everyone is talking about. Buzz Portal will sort through
                       thousands of useless articles plaguing the internet and
-                      give users an accurate (and aesthetically impressive)
-                      portrait of a stock&apos;s sentiment, only from the most
-                      reliable sources.
+                      give you an accurate portrait of a stock’s sentiment only
+                      from the most reliable sources.
                     </p>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -205,14 +204,14 @@ const Features = () => {
                     alt="..."
                   />
                   <Carousel.Caption className=" d-none d-md-block cstm-caption">
-                    <h3 className="mb-3">Strategy Builder</h3>
+                    <h3 className="mb-3">Strategy Designer</h3>
                     <p>
-                      No matter if you&apos;re buying long, selling short, or
-                      what your fundamental and technical preferences are, just
-                      filter them in and we&apos;ll provide you with baskets of
-                      backtested strategies to expand your portfolio. We&apos;ll
-                      display the expected returns and even alert you if a stock
-                      makes the cut or if one falls short.
+                      No matter if you’re bullish, bearish or what your
+                      fundamental and technical preferences are, just filter
+                      them in and we’ll provide you with baskets of backtested
+                      strategies to expand your portfolio. We’ll display the
+                      expected returns and even alert you if a stock makes the
+                      cut or if one falls short.
                     </p>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -226,11 +225,9 @@ const Features = () => {
                     <h3 className="mb-3">Economic Insight</h3>
                     <p>
                       Take control of your investments by adding real-time,
-                      macro-economic events to your personal calendar. With
-                      indices and over 115 FX charts tied to economic events,
-                      you&apos;ll be able to act quickly if needed. Check out an
-                      event&apos;s historical impact and determine your ideal
-                      stop-loss to never miss a trading opportunity.
+                      macro-economic events to your personal calendar. Determine
+                      your ideal stop-loss and check out an event’s historical
+                      impact on your favorite stocks.
                     </p>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -241,13 +238,12 @@ const Features = () => {
                     alt="..."
                   />
                   <Carousel.Caption className=" d-none d-md-block cstm-caption">
-                    <h3 className="mb-3">Newsletter</h3>
+                    <h3 className="mb-3">Newsbites</h3>
                     <p>
                       Crypto trade ideas, European market outlook, juicy market
-                      news, pre-market stock ideas and more sent directly to
-                      your inbox. Just choose what interests you and we&apos;ll
-                      keep you informed and up to date with timely, fact-checked
-                      newsletters.
+                      news, stock ideas and more sent directly to your inbox.
+                      Just choose what interests you and we’ll keep you informed
+                      and up to date with timely, fact-checked news.
                     </p>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -258,14 +254,13 @@ const Features = () => {
                     alt="..."
                   />
                   <Carousel.Caption className=" d-none d-md-block cstm-caption">
-                    <h3 className="mb-3">Tailored Ideas</h3>
+                    <h3 className="mb-3">Customized Trades</h3>
                     <p>
-                      We&apos;ll find you personalized backtested trade
-                      opportunities tailored to your technical and fundamental
-                      style, favorite sector, holding timeframe, and more.
-                      Interact with them on real-time charts and receive
-                      transparent explanations of what we found, helping you
-                      foster a technical analysis foundation.
+                      We’ll find you new stocks tailored to your technical and
+                      fundamental preferences, favorite sector, holding time
+                      frame, and more. Interact with them on real-time charts
+                      and receive transparent explanations, helping you foster
+                      an even stronger technical analysis foundation.
                     </p>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -276,10 +271,9 @@ const Features = () => {
                     alt="..."
                   />
                   <Carousel.Caption className=" d-none d-md-block cstm-caption">
-                    <h3 className="mb-3">Fundamental Analyzer</h3>
+                    <h3 className="mb-3">Fundamental Portal</h3>
                     <p>
-                      With the aesthetic of buzz portal analyzer will provide
-                      you with an overall rating based on a stock&apos;s
+                      We’ll provide you with an overall rating of a stock’s
                       fundamental health (Growth, value, income, quality, and
                       momentum). Learn how a stock is rated based on different
                       economic cycles, how it compares to its peers and what its
