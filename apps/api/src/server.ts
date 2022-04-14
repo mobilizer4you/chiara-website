@@ -17,7 +17,9 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
   origin = [
     "https://chiara-website-tik-stock.vercel.app/",
     "https://chiara-website.vercel.app/",
+    "https://chiara-website.vercel.app",
     "https://studio.apollographql.com",
+    /^(https:\/\/|http:\/\/)(chiara-website-)/,
     /^(https:\/\/|http:\/\/)(chiara-website-git-)/,
   ];
 }
