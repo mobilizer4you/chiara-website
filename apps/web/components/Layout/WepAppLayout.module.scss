@@ -1,0 +1,5 @@
+.dropdown__toggle__custom {
+	& ::after {
+		display: none !important;
+	}
+}

@@ -22,8 +22,35 @@ import { useRouter } from "next/router";
 import { ROUTES } from "../../utils/utils";
 import Image from "next/image";
 import LogoutModal from "../LogoutModal/LogoutModal";
+import style from "./WepAppLayout.module.scss";
+
 type Props = {
   children: React.ReactNode;
+};
+
+const Avatar = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          width: "40px",
+          height: "40px",
+          borderRadius: "50%",
+          background: "#cc4040",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginRight: "10px",
+        }}
+      ></div>
+      <span>Dropdown</span>
+    </div>
+  );
 };
 
 const WebAppLayout = ({ children }: Props) => {
@@ -78,7 +105,11 @@ const WebAppLayout = ({ children }: Props) => {
                   </button>
                 </Link>
               </Nav.Item>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown
+                title={<Avatar />}
+                id="basic-nav-dropdown"
+                className={style.dropdown__toggle__custom}
+              >
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
                   Profile Settings
