@@ -33,22 +33,18 @@ const Avatar = () => {
     <div
       style={{
         display: "flex",
-        alignItems: "center",
       }}
     >
       <div
         style={{
-          width: "40px",
-          height: "40px",
+          width: "35px",
+          height: "35px",
           borderRadius: "50%",
-          background: "#cc4040",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          background: "#3d5ffe",
           marginRight: "10px",
         }}
       ></div>
-      <span>Dropdown</span>
+      {/* <span>Dropdown</span> */}
     </div>
   );
 };
