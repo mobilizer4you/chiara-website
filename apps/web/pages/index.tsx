@@ -20,21 +20,21 @@ const Web = () => {
       );
     },
   });
-  const router = useRouter();
-  React.useEffect(() => {
-    if (typeof window === "undefined") return;
-    const script = document.createElement("script");
-    script.src = "/js/animationScript.js";
-    script.async = true;
-    document.body.appendChild(script);
+  // const router = useRouter();
+  // React.useEffect(() => {
+  //   if (typeof window === "undefined") return;
+  //   const script = document.createElement("script");
+  //   script.src = "/js/animationScript.js";
+  //   script.async = true;
+  //   document.body.appendChild(script);
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  //   return () => {
+  //     document.body.removeChild(script);
+  //   };
+  // }, []);
   return (
     <>
-      <Script
+      {/* <Script
         strategy="beforeInteractive"
         src="https://code.jquery.com/jquery-3.6.0.min.js"
       ></Script>
@@ -53,7 +53,7 @@ const Web = () => {
       <Script
         strategy="beforeInteractive"
         src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"
-      ></Script>
+      ></Script> */}
 
       {/* <Script id="show-banner" strategy="lazyOnload">
         {`${script}`}
