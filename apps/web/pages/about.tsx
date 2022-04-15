@@ -157,10 +157,10 @@ const About = () => {
                 </div>
               </div>
               <div className="row" id="anim-position-5">
-                <h1 className="text-center mt-5 mb-5">
-                  {/* Thank you for your support */}
+                {/* <h1 className="text-center mt-5 mb-5">
+                  Thank you for your support
                   <button>Subscribe</button>
-                </h1>
+                </h1> */}
               </div>
             </div>
           </div>
