@@ -7,11 +7,7 @@ import PricingMaxSvg from "../public/svg/pricingMax.svg";
 const Pricing = () => {
   return (
     <div>
-      <header
-        style={{
-          minHeight: 700,
-        }}
-      >
+      <header>
         <div className="container">
           <div className="shape" id="moon"></div>
           <h1 className="big-title mb-5">Subscription Plans and Pricing</h1>

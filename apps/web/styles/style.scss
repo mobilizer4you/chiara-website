@@ -65,7 +65,7 @@ h6 {
 // Body initials and font size
 
 header {
-  // background: url(../images/top-banner.png)no-repeat;
+  background: url(../public/images/top-banner.png) no-repeat;
   background-size: cover;
   min-height: 856px;
   position: relative;
@@ -111,6 +111,7 @@ header {
   left: 35%;
   border-radius: 50%;
   z-index: 2;
+  display: none;
   background: url(../public/images/moon-bg-image.png) no-repeat;
   background-size: cover;
   &.shape-lg {
@@ -574,6 +575,7 @@ footer {
 .row-equal {
   display: flex;
   align-items: flex-end;
+  margin-top: -150px;
   .col-md-4 {
     display: flex;
     flex-grow: 1;
