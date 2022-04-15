@@ -65,7 +65,7 @@ h6 {
 // Body initials and font size
 
 header {
-  // background: url(../images/top-banner.png)no-repeat;
+  background: url(../public/images/top-banner.png) no-repeat;
   background-size: cover;
   min-height: 856px;
   position: relative;
@@ -111,6 +111,7 @@ header {
   left: 35%;
   border-radius: 50%;
   z-index: 2;
+  display: none;
   background: url(../public/images/moon-bg-image.png) no-repeat;
   background-size: cover;
   &.shape-lg {
@@ -129,7 +130,7 @@ header {
 
 .btn-theme {
   min-width: 100px;
-  background: linear-gradient(91.67deg, #2a96c4 4.72%, #b965e1 101.63%);
+  background: linear-gradient(91.1deg, #2A1ADA 0.53%, #345AE3 44.18%, #B819E0 96.95%);
   color: $font-color-w;
   font-size: 20px;
   border: 0px;
@@ -574,6 +575,7 @@ footer {
 .row-equal {
   display: flex;
   align-items: flex-end;
+  margin-top: -150px;
   .col-md-4 {
     display: flex;
     flex-grow: 1;

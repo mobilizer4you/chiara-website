@@ -4,20 +4,20 @@ import Script from "next/script";
 import HomePageLayout from "../components/Layout/HomePageLayout";
 
 const About = () => {
-  React.useEffect(() => {
-    if (typeof window === "undefined") return;
-    const script = document.createElement("script");
-    script.src = "/js/aboutAnimationScript.js";
-    script.async = true;
-    document.body.appendChild(script);
+  // React.useEffect(() => {
+  //   if (typeof window === "undefined") return;
+  //   const script = document.createElement("script");
+  //   script.src = "/js/aboutAnimationScript.js";
+  //   script.async = true;
+  //   document.body.appendChild(script);
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  //   return () => {
+  //     document.body.removeChild(script);
+  //   };
+  // }, []);
   return (
     <>
-      <Script
+      {/* <Script
         strategy="beforeInteractive"
         src="https://code.jquery.com/jquery-3.6.0.min.js"
       ></Script>
@@ -36,7 +36,7 @@ const About = () => {
       <Script
         strategy="beforeInteractive"
         src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"
-      ></Script>
+      ></Script> */}
       <header>
         <div className="container">
           <div className="shape shape-new" id="moon"></div>
@@ -157,10 +157,10 @@ const About = () => {
                 </div>
               </div>
               <div className="row" id="anim-position-5">
-                <h1 className="text-center mt-5 mb-5">
-                  {/* Thank you for your support */}
+                {/* <h1 className="text-center mt-5 mb-5">
+                  Thank you for your support
                   <button>Subscribe</button>
-                </h1>
+                </h1> */}
               </div>
             </div>
           </div>
