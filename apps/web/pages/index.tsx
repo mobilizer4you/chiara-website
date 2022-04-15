@@ -252,8 +252,8 @@ const Web = () => {
                 y2="147.588"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#ADD8FF" />
-                <stop offset="1" stop-color="#D5ECF8" stop-opacity="0" />
+                <stop stopColor="#ADD8FF" />
+                <stop offset="1" stopColor="#D5ECF8" stopOpacity="0" />
               </linearGradient>
               <linearGradient
                 id="paint1_linear_459_239"
@@ -263,8 +263,8 @@ const Web = () => {
                 y2="420.948"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#ADBAFF" />
-                <stop offset="1" stop-color="#9CEAEF" stop-opacity="0" />
+                <stop stopColor="#ADBAFF" />
+                <stop offset="1" stopColor="#9CEAEF" stopOpacity="0" />
               </linearGradient>
               <linearGradient
                 id="paint2_linear_459_239"
@@ -274,8 +274,8 @@ const Web = () => {
                 y2="392.544"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#ADE1FF" />
-                <stop offset="1" stop-color="#D2E1F7" stop-opacity="0" />
+                <stop stopColor="#ADE1FF" />
+                <stop offset="1" stopColor="#D2E1F7" stopOpacity="0" />
               </linearGradient>
             </defs>
           </svg>
